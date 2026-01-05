@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BI Intelligence Dashboard - 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <div class="header-content">
+        <div class="logo-area">
+          <h1>BI <span>Intelligence</span></h1>
+          <p class="subtitle">Global Operations Performance • 2025</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="chart-section">
+        <div class="chart-container glass">
+          <div class="chart-header">
+            <h2>Monthly Revenue (CNY)</h2>
+            <p>Net revenue after transaction fees</p>
+          </div>
+          <canvas id="revenueChart"></canvas>
+        </div>
+
+        <div class="chart-container glass">
+          <div class="chart-header">
+            <h2>Monthly Valid Paid Orders</h2>
+            <p>Confirmed paid subscriptions for 2025</p>
+          </div>
+          <canvas id="paidOrdersChart"></canvas>
+        </div>
+
+        <div class="chart-container glass">
+          <div class="chart-header">
+            <h2>Monthly Trial Orders</h2>
+            <p>Valid trial acquisitions (Amount=0, Status=1)</p>
+          </div>
+          <canvas id="trialChart"></canvas>
+        </div>
+
+        <div class="chart-container glass">
+          <div class="chart-header">
+            <h2>Monthly First Period Paid Orders</h2>
+            <p>First-time payments for subscriptions in 2025</p>
+          </div>
+          <canvas id="firstPeriodChart"></canvas>
+        </div>
+
+        <div class="chart-container glass">
+          <div class="chart-header">
+            <h2>Monthly Renewal Orders</h2>
+            <p>Renewal payments (Valid Paid - First Period) for 2025</p>
+          </div>
+          <canvas id="renewalChart"></canvas>
+        </div>
+
+        <div class="chart-container glass">
+          <div class="chart-header">
+            <h2>Monthly Registered Users</h2>
+            <p>New user registrations for 2025</p>
+          </div>
+          <canvas id="registrationChart"></canvas>
+        </div>
+
+        <div class="chart-container glass">
+          <div class="chart-header">
+            <h2>Monthly New Devices</h2>
+            <p>New devices created in 2025</p>
+          </div>
+          <canvas id="deviceChart"></canvas>
+        </div>
+
+        <div class="chart-container glass">
+          <div class="chart-header">
+            <h2>Monthly Active Subscriptions</h2>
+            <p>Number of valid subscriptions active in each month</p>
+          </div>
+          <canvas id="activeSubChart"></canvas>
+        </div>
+  </div>
+  </section>
+
+  <section class="table-section glass" style="margin-top: 2rem; padding: 1.5rem 3rem; border-radius: 16px;">
+    <div class="chart-header">
+      <h2>2025 Business Performance Matrix</h2>
+      <p>Consolidated view of all key retention and conversion metrics</p>
+    </div>
+    <div class="table-container" style="overflow-x: auto;">
+      <table class="data-table"
+        style="width: 100%; border-collapse: collapse; margin-top: 1rem; color: #cbd5e1; font-size: 0.9rem;">
+        <thead>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left;">
+            <th style="padding: 1rem;">Month</th>
+            <th style="padding: 1rem;">Trial Orders<br><span
+                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Starts)</span></th>
+            <th style="padding: 1rem;">Valid Paid Orders<br><span
+                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(First + Renewal)</span></th>
+            <th style="padding: 1rem;">First Period Paid<br><span
+                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Trial + Direct)</span></th>
+            <th style="padding: 1rem;">From Trial</th>
+            <th style="padding: 1rem;">% From Trial<br><span
+                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(vs First Period)</span></th>
+            <th style="padding: 1rem;">From Direct</th>
+            <th style="padding: 1rem;">% From Direct<br><span
+                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(vs First Period)</span></th>
+            <th style="padding: 1rem;">Renewal Orders</th>
+          </tr>
+        </thead>
+        <tbody id="conversionTableBody">
+          <!-- Data populated by JS -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="table-section glass" style="margin-top: 2rem; padding: 1.5rem 3rem; border-radius: 16px;">
+    <div class="chart-header">
+      <h2>Trial Cohort Conversion Analysis</h2>
+      <p>Conversion efficiency based on trial entry window (Month Start-14d to Month End)</p>
+    </div>
+    <div class="table-container" style="overflow-x: auto;">
+      <table class="data-table"
+        style="width: 100%; border-collapse: collapse; margin-top: 1rem; color: #cbd5e1; font-size: 0.9rem;">
+        <thead>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left;">
+            <th style="padding: 1rem;">Trial Window (Period)</th>
+            <th style="padding: 1rem;">From Trial (Converted)<br><span
+                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Monthly + Yearly)</span></th>
+            <th style="padding: 1rem;">Conv. Monthly</th>
+            <th style="padding: 1rem;">Conv. Yearly</th>
+            <th style="padding: 1rem;">Trial Orders (in Period)<br><span
+                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Base for Rates)</span></th>
+            <th style="padding: 1rem;">Trials Monthly</th>
+            <th style="padding: 1rem;">Trials Yearly</th>
+            <th style="padding: 1rem;">Monthly Conv. Rate<br><span
+                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Conv M / Total Trials)</span></th>
+            <th style="padding: 1rem;">Yearly Conv. Rate<br><span
+                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Conv Y / Total Trials)</span></th>
+            <th style="padding: 1rem;">Total Conv. Rate<br><span
+                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Total Conv / Total Trials)</span></th>
+          </tr>
+        </thead>
+        <tbody id="cohortTableBody">
+          <!-- Data populated by JS -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="table-section glass" style="margin-top: 2rem; padding: 1.5rem 3rem; border-radius: 16px;">
+    <div class="chart-header">
+      <h2>Trial User Registration Lag Analysis</h2>
+      <p>Distribution of time lag between User Registration and Trial Start Date</p>
+    </div>
+    <div class="table-container" style="overflow-x: auto;">
+      <table class="data-table"
+        style="width: 100%; border-collapse: collapse; margin-top: 1rem; color: #cbd5e1; font-size: 0.9rem;">
+        <thead>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left;">
+            <th style="padding: 1rem;">Trial Window (Period)</th>
+            <th style="padding: 1rem;">Trial Orders<br><span
+                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Total Count)</span></th>
+            <th style="padding: 1rem;">Same Day</th>
+            <th style="padding: 1rem;">1-3 Days</th>
+            <th style="padding: 1rem;">4-7 Days</th>
+            <th style="padding: 1rem;">8-14 Days</th>
+            <th style="padding: 1rem;">15-30 Days</th>
+            <th style="padding: 1rem;">30-60 Days</th>
+            <th style="padding: 1rem;">60-90 Days</th>
+            <th style="padding: 1rem;">> 90 Days</th>
+          </tr>
+        </thead>
+        <tbody id="lagTableBody">
+          <!-- Data populated by JS -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="table-section glass" style="margin-top: 2rem; padding: 1.5rem 3rem; border-radius: 16px;">
+    <section style="margin-top: 3rem;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Monthly Registration & Device Analysis</h2>
+      <p>Analysis of registered users and their device binding status</p>
+      </div>
+      <div class="table-container" style="overflow-x: auto;">
+        <table class="data-table"
+          style="width: 100%; border-collapse: collapse; margin-top: 1rem; color: #cbd5e1; font-size: 0.9rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left;">
+              <th style="padding: 1rem;">Month</th>
+              <th style="padding: 1rem;">Total Registered Users</th>
+              <th style="padding: 1rem;">Bound Device (Any)</th>
+              <th style="padding: 1rem;">% Bound<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Bound / Reg)</span></th>
+              <th style="padding: 1rem;">Owner Device (Type=1)</th>
+              <th style="padding: 1rem;">% Owner<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Owner / Reg)</span></th>
+              <th style="padding: 1rem;">Owner Tried</th>
+              <th style="padding: 1rem;">% Tried<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Tried / Owner)</span></th>
+              <th style="padding: 1rem;">Tried (≤30d)</th>
+              <th style="padding: 1rem;">% 30d<br><span style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(30d
+                  / Owner)</span></th>
+            </tr>
+          </thead>
+          <tbody id="regDeviceTableBody">
+            <!-- Data populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">2025 Business Performance Matrix</h2>
+      <div style="background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+          <thead style="background: rgba(255, 255, 255, 0.1);">
+            <tr>
+              <th style="padding: 1rem;">Month</th>
+              <th style="padding: 1rem;">Paid Buyers (Direct)<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Base Cohort)</span></th>
+
+              <th style="padding: 1rem;">1 Month</th>
+              <th style="padding: 1rem;">%<br><span style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(vs
+                  Base)</span></th>
+              <th style="padding: 1rem;">2-4 Months</th>
+              <th style="padding: 1rem;">%<br><span style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(vs
+                  Base)</span></th>
+              <th style="padding: 1rem;">5-7 Months</th>
+              <th style="padding: 1rem;">%<br><span style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(vs
+                  Base)</span></th>
+              <th style="padding: 1rem;">8-12 Months</th>
+              <th style="padding: 1rem;">%<br><span style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(vs
+                  Base)</span></th>
+              <th style="padding: 1rem;">&gt; 12 Months</th>
+              <th style="padding: 1rem;">%<br><span style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(vs
+                  Base)</span></th>
+            </tr>
+          </thead>
+          <tbody id="businessMatrixTableBody">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Direct Buyer History Analysis</h2>
+      <p>Proportion of monthly direct buyers who had at least one prior valid paid order</p>
+      <div style="background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+          <thead style="background: rgba(255, 255, 255, 0.1);">
+            <tr>
+              <th style="padding: 1rem;">Month</th>
+              <th style="padding: 1rem;">Paid Buyers (Direct)</th>
+              <th style="padding: 1rem;">Existing Users<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Had Prior Orders)</span></th>
+              <th style="padding: 1rem;">% Existing</th>
+              <th style="padding: 1rem;">With Active Sub<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Overlapping)</span></th>
+              <th style="padding: 1rem;">% of Existing</th>
+              <th style="padding: 1rem;">New Users<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(First Purchase)</span></th>
+              <th style="padding: 1rem;">% New</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 BI-Center Operations • Data driven by Antigravity AI</p>
+    </footer>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>

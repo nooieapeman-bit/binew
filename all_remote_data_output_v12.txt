@@ -1,0 +1,1159 @@
+Connecting to Remote DB via SSH Tunnel...
+Calculating Revenue & Valid Orders...
+Calculating First Period Orders...
+Calculating Monthly Trial Orders...
+Calculating Cohort Analysis (Unaggregated)...
+Calculating Registration Lag...
+Calculating Registration & Device Binding...
+Calculating Monthly New Devices...
+Calculating Business Performance Matrix (Direct)...
+
+--- FINAL JSON OUTPUT ---
+{
+    "revenueData": [
+        597354.56,
+        568862.46,
+        642631.3,
+        611978.44,
+        634867.87,
+        627893.54,
+        689907.21,
+        852698.55,
+        906161.08,
+        869195.49,
+        855107.85,
+        927525.65
+    ],
+    "validOrdersData": [
+        16406,
+        15374,
+        16663,
+        15873,
+        16023,
+        15600,
+        16636,
+        17388,
+        16961,
+        16809,
+        16146,
+        16750
+    ],
+    "firstPeriodData": [
+        2878,
+        2652,
+        2832,
+        2245,
+        2245,
+        2405,
+        3025,
+        3201,
+        2858,
+        2698,
+        2669,
+        3275
+    ],
+    "trialData": [
+        1477,
+        1787,
+        1325,
+        1043,
+        1119,
+        1253,
+        1764,
+        1944,
+        1872,
+        1786,
+        1903,
+        2504
+    ],
+    "cohortData": [
+        {
+            "month": "2025-01",
+            "period": "2024-12-18 ~ 2025-01-17",
+            "convertedTotal": 993,
+            "convertedMonthly": 882,
+            "convertedMonthlyPct": 88.82,
+            "convertedYearly": 111,
+            "convertedYearlyPct": 11.18,
+            "trialTotal": 1529,
+            "trialMonthly": 1402,
+            "trialMonthlyPct": 91.69,
+            "trialYearly": 127,
+            "trialYearlyPct": 8.31,
+            "rate": 64.94,
+            "monthlyRate": 62.91,
+            "yearlyRate": 87.4
+        },
+        {
+            "month": "2025-02",
+            "period": "2025-01-18 ~ 2025-02-14",
+            "convertedTotal": 805,
+            "convertedMonthly": 725,
+            "convertedMonthlyPct": 90.06,
+            "convertedYearly": 80,
+            "convertedYearlyPct": 9.94,
+            "trialTotal": 1343,
+            "trialMonthly": 1239,
+            "trialMonthlyPct": 92.26,
+            "trialYearly": 104,
+            "trialYearlyPct": 7.74,
+            "rate": 59.94,
+            "monthlyRate": 58.51,
+            "yearlyRate": 76.92
+        },
+        {
+            "month": "2025-03",
+            "period": "2025-02-15 ~ 2025-03-17",
+            "convertedTotal": 968,
+            "convertedMonthly": 859,
+            "convertedMonthlyPct": 88.74,
+            "convertedYearly": 109,
+            "convertedYearlyPct": 11.26,
+            "trialTotal": 1902,
+            "trialMonthly": 1735,
+            "trialMonthlyPct": 91.22,
+            "trialYearly": 167,
+            "trialYearlyPct": 8.78,
+            "rate": 50.89,
+            "monthlyRate": 49.51,
+            "yearlyRate": 65.27
+        },
+        {
+            "month": "2025-04",
+            "period": "2025-03-18 ~ 2025-04-16",
+            "convertedTotal": 600,
+            "convertedMonthly": 541,
+            "convertedMonthlyPct": 90.17,
+            "convertedYearly": 59,
+            "convertedYearlyPct": 9.83,
+            "trialTotal": 1108,
+            "trialMonthly": 1020,
+            "trialMonthlyPct": 92.06,
+            "trialYearly": 88,
+            "trialYearlyPct": 7.94,
+            "rate": 54.15,
+            "monthlyRate": 53.04,
+            "yearlyRate": 67.05
+        },
+        {
+            "month": "2025-05",
+            "period": "2025-04-17 ~ 2025-05-17",
+            "convertedTotal": 637,
+            "convertedMonthly": 577,
+            "convertedMonthlyPct": 90.58,
+            "convertedYearly": 60,
+            "convertedYearlyPct": 9.42,
+            "trialTotal": 1058,
+            "trialMonthly": 982,
+            "trialMonthlyPct": 92.82,
+            "trialYearly": 76,
+            "trialYearlyPct": 7.18,
+            "rate": 60.21,
+            "monthlyRate": 58.76,
+            "yearlyRate": 78.95
+        },
+        {
+            "month": "2025-06",
+            "period": "2025-05-18 ~ 2025-06-16",
+            "convertedTotal": 670,
+            "convertedMonthly": 602,
+            "convertedMonthlyPct": 89.85,
+            "convertedYearly": 68,
+            "convertedYearlyPct": 10.15,
+            "trialTotal": 1168,
+            "trialMonthly": 1069,
+            "trialMonthlyPct": 91.52,
+            "trialYearly": 99,
+            "trialYearlyPct": 8.48,
+            "rate": 57.36,
+            "monthlyRate": 56.31,
+            "yearlyRate": 68.69
+        },
+        {
+            "month": "2025-07",
+            "period": "2025-06-17 ~ 2025-07-17",
+            "convertedTotal": 944,
+            "convertedMonthly": 875,
+            "convertedMonthlyPct": 92.69,
+            "convertedYearly": 69,
+            "convertedYearlyPct": 7.31,
+            "trialTotal": 1497,
+            "trialMonthly": 1392,
+            "trialMonthlyPct": 92.99,
+            "trialYearly": 105,
+            "trialYearlyPct": 7.01,
+            "rate": 63.06,
+            "monthlyRate": 62.86,
+            "yearlyRate": 65.71
+        },
+        {
+            "month": "2025-08",
+            "period": "2025-07-18 ~ 2025-08-17",
+            "convertedTotal": 1106,
+            "convertedMonthly": 727,
+            "convertedMonthlyPct": 65.73,
+            "convertedYearly": 379,
+            "convertedYearlyPct": 34.27,
+            "trialTotal": 1976,
+            "trialMonthly": 1282,
+            "trialMonthlyPct": 64.88,
+            "trialYearly": 694,
+            "trialYearlyPct": 35.12,
+            "rate": 55.97,
+            "monthlyRate": 56.71,
+            "yearlyRate": 54.61
+        },
+        {
+            "month": "2025-09",
+            "period": "2025-08-18 ~ 2025-09-16",
+            "convertedTotal": 948,
+            "convertedMonthly": 508,
+            "convertedMonthlyPct": 53.59,
+            "convertedYearly": 440,
+            "convertedYearlyPct": 46.41,
+            "trialTotal": 1874,
+            "trialMonthly": 926,
+            "trialMonthlyPct": 49.41,
+            "trialYearly": 948,
+            "trialYearlyPct": 50.59,
+            "rate": 50.59,
+            "monthlyRate": 54.86,
+            "yearlyRate": 46.41
+        },
+        {
+            "month": "2025-10",
+            "period": "2025-09-17 ~ 2025-10-17",
+            "convertedTotal": 823,
+            "convertedMonthly": 485,
+            "convertedMonthlyPct": 58.93,
+            "convertedYearly": 338,
+            "convertedYearlyPct": 41.07,
+            "trialTotal": 1846,
+            "trialMonthly": 926,
+            "trialMonthlyPct": 50.16,
+            "trialYearly": 920,
+            "trialYearlyPct": 49.84,
+            "rate": 44.58,
+            "monthlyRate": 52.38,
+            "yearlyRate": 36.74
+        },
+        {
+            "month": "2025-11",
+            "period": "2025-10-18 ~ 2025-11-16",
+            "convertedTotal": 775,
+            "convertedMonthly": 415,
+            "convertedMonthlyPct": 53.55,
+            "convertedYearly": 360,
+            "convertedYearlyPct": 46.45,
+            "trialTotal": 1831,
+            "trialMonthly": 877,
+            "trialMonthlyPct": 47.9,
+            "trialYearly": 954,
+            "trialYearlyPct": 52.1,
+            "rate": 42.33,
+            "monthlyRate": 47.32,
+            "yearlyRate": 37.74
+        },
+        {
+            "month": "2025-12",
+            "period": "2025-11-17 ~ 2025-12-17",
+            "convertedTotal": 963,
+            "convertedMonthly": 555,
+            "convertedMonthlyPct": 57.63,
+            "convertedYearly": 408,
+            "convertedYearlyPct": 42.37,
+            "trialTotal": 2199,
+            "trialMonthly": 1113,
+            "trialMonthlyPct": 50.61,
+            "trialYearly": 1086,
+            "trialYearlyPct": 49.39,
+            "rate": 43.79,
+            "monthlyRate": 49.87,
+            "yearlyRate": 37.57
+        }
+    ],
+    "lagData": [
+        {
+            "month": "2025-01",
+            "period": "2024-12-18 ~ 2025-01-17",
+            "totalTrials": 1513,
+            "bins": {
+                "Same Day": {
+                    "count": 437,
+                    "pct": 28.88
+                },
+                "1-3 Days": {
+                    "count": 167,
+                    "pct": 11.04
+                },
+                "4-7 Days": {
+                    "count": 70,
+                    "pct": 4.63
+                },
+                "8-14 Days": {
+                    "count": 74,
+                    "pct": 4.89
+                },
+                "15-30 Days": {
+                    "count": 89,
+                    "pct": 5.88
+                },
+                "30-60 Days": {
+                    "count": 79,
+                    "pct": 5.22
+                },
+                "60-90 Days": {
+                    "count": 62,
+                    "pct": 4.1
+                },
+                "> 90 Days": {
+                    "count": 535,
+                    "pct": 35.36
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-02",
+            "period": "2025-01-18 ~ 2025-02-14",
+            "totalTrials": 1334,
+            "bins": {
+                "Same Day": {
+                    "count": 386,
+                    "pct": 28.94
+                },
+                "1-3 Days": {
+                    "count": 163,
+                    "pct": 12.22
+                },
+                "4-7 Days": {
+                    "count": 75,
+                    "pct": 5.62
+                },
+                "8-14 Days": {
+                    "count": 54,
+                    "pct": 4.05
+                },
+                "15-30 Days": {
+                    "count": 79,
+                    "pct": 5.92
+                },
+                "30-60 Days": {
+                    "count": 75,
+                    "pct": 5.62
+                },
+                "60-90 Days": {
+                    "count": 41,
+                    "pct": 3.07
+                },
+                "> 90 Days": {
+                    "count": 461,
+                    "pct": 34.56
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-03",
+            "period": "2025-02-15 ~ 2025-03-17",
+            "totalTrials": 1824,
+            "bins": {
+                "Same Day": {
+                    "count": 472,
+                    "pct": 25.88
+                },
+                "1-3 Days": {
+                    "count": 187,
+                    "pct": 10.25
+                },
+                "4-7 Days": {
+                    "count": 84,
+                    "pct": 4.61
+                },
+                "8-14 Days": {
+                    "count": 105,
+                    "pct": 5.76
+                },
+                "15-30 Days": {
+                    "count": 101,
+                    "pct": 5.54
+                },
+                "30-60 Days": {
+                    "count": 102,
+                    "pct": 5.59
+                },
+                "60-90 Days": {
+                    "count": 70,
+                    "pct": 3.84
+                },
+                "> 90 Days": {
+                    "count": 703,
+                    "pct": 38.54
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-04",
+            "period": "2025-03-18 ~ 2025-04-16",
+            "totalTrials": 1066,
+            "bins": {
+                "Same Day": {
+                    "count": 271,
+                    "pct": 25.42
+                },
+                "1-3 Days": {
+                    "count": 134,
+                    "pct": 12.57
+                },
+                "4-7 Days": {
+                    "count": 48,
+                    "pct": 4.5
+                },
+                "8-14 Days": {
+                    "count": 42,
+                    "pct": 3.94
+                },
+                "15-30 Days": {
+                    "count": 72,
+                    "pct": 6.75
+                },
+                "30-60 Days": {
+                    "count": 59,
+                    "pct": 5.53
+                },
+                "60-90 Days": {
+                    "count": 37,
+                    "pct": 3.47
+                },
+                "> 90 Days": {
+                    "count": 403,
+                    "pct": 37.8
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-05",
+            "period": "2025-04-17 ~ 2025-05-17",
+            "totalTrials": 1019,
+            "bins": {
+                "Same Day": {
+                    "count": 267,
+                    "pct": 26.2
+                },
+                "1-3 Days": {
+                    "count": 103,
+                    "pct": 10.11
+                },
+                "4-7 Days": {
+                    "count": 41,
+                    "pct": 4.02
+                },
+                "8-14 Days": {
+                    "count": 45,
+                    "pct": 4.42
+                },
+                "15-30 Days": {
+                    "count": 50,
+                    "pct": 4.91
+                },
+                "30-60 Days": {
+                    "count": 58,
+                    "pct": 5.69
+                },
+                "60-90 Days": {
+                    "count": 34,
+                    "pct": 3.34
+                },
+                "> 90 Days": {
+                    "count": 421,
+                    "pct": 41.32
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-06",
+            "period": "2025-05-18 ~ 2025-06-16",
+            "totalTrials": 1160,
+            "bins": {
+                "Same Day": {
+                    "count": 342,
+                    "pct": 29.48
+                },
+                "1-3 Days": {
+                    "count": 120,
+                    "pct": 10.34
+                },
+                "4-7 Days": {
+                    "count": 50,
+                    "pct": 4.31
+                },
+                "8-14 Days": {
+                    "count": 43,
+                    "pct": 3.71
+                },
+                "15-30 Days": {
+                    "count": 47,
+                    "pct": 4.05
+                },
+                "30-60 Days": {
+                    "count": 58,
+                    "pct": 5.0
+                },
+                "60-90 Days": {
+                    "count": 47,
+                    "pct": 4.05
+                },
+                "> 90 Days": {
+                    "count": 453,
+                    "pct": 39.05
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-07",
+            "period": "2025-06-17 ~ 2025-07-17",
+            "totalTrials": 1446,
+            "bins": {
+                "Same Day": {
+                    "count": 464,
+                    "pct": 32.09
+                },
+                "1-3 Days": {
+                    "count": 172,
+                    "pct": 11.89
+                },
+                "4-7 Days": {
+                    "count": 77,
+                    "pct": 5.33
+                },
+                "8-14 Days": {
+                    "count": 57,
+                    "pct": 3.94
+                },
+                "15-30 Days": {
+                    "count": 60,
+                    "pct": 4.15
+                },
+                "30-60 Days": {
+                    "count": 56,
+                    "pct": 3.87
+                },
+                "60-90 Days": {
+                    "count": 33,
+                    "pct": 2.28
+                },
+                "> 90 Days": {
+                    "count": 527,
+                    "pct": 36.45
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-08",
+            "period": "2025-07-18 ~ 2025-08-17",
+            "totalTrials": 1947,
+            "bins": {
+                "Same Day": {
+                    "count": 649,
+                    "pct": 33.33
+                },
+                "1-3 Days": {
+                    "count": 218,
+                    "pct": 11.2
+                },
+                "4-7 Days": {
+                    "count": 84,
+                    "pct": 4.31
+                },
+                "8-14 Days": {
+                    "count": 81,
+                    "pct": 4.16
+                },
+                "15-30 Days": {
+                    "count": 108,
+                    "pct": 5.55
+                },
+                "30-60 Days": {
+                    "count": 84,
+                    "pct": 4.31
+                },
+                "60-90 Days": {
+                    "count": 40,
+                    "pct": 2.05
+                },
+                "> 90 Days": {
+                    "count": 683,
+                    "pct": 35.08
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-09",
+            "period": "2025-08-18 ~ 2025-09-16",
+            "totalTrials": 1849,
+            "bins": {
+                "Same Day": {
+                    "count": 648,
+                    "pct": 35.05
+                },
+                "1-3 Days": {
+                    "count": 225,
+                    "pct": 12.17
+                },
+                "4-7 Days": {
+                    "count": 94,
+                    "pct": 5.08
+                },
+                "8-14 Days": {
+                    "count": 67,
+                    "pct": 3.62
+                },
+                "15-30 Days": {
+                    "count": 96,
+                    "pct": 5.19
+                },
+                "30-60 Days": {
+                    "count": 91,
+                    "pct": 4.92
+                },
+                "60-90 Days": {
+                    "count": 52,
+                    "pct": 2.81
+                },
+                "> 90 Days": {
+                    "count": 576,
+                    "pct": 31.15
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-10",
+            "period": "2025-09-17 ~ 2025-10-17",
+            "totalTrials": 1829,
+            "bins": {
+                "Same Day": {
+                    "count": 683,
+                    "pct": 37.34
+                },
+                "1-3 Days": {
+                    "count": 260,
+                    "pct": 14.22
+                },
+                "4-7 Days": {
+                    "count": 100,
+                    "pct": 5.47
+                },
+                "8-14 Days": {
+                    "count": 85,
+                    "pct": 4.65
+                },
+                "15-30 Days": {
+                    "count": 94,
+                    "pct": 5.14
+                },
+                "30-60 Days": {
+                    "count": 64,
+                    "pct": 3.5
+                },
+                "60-90 Days": {
+                    "count": 41,
+                    "pct": 2.24
+                },
+                "> 90 Days": {
+                    "count": 502,
+                    "pct": 27.45
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-11",
+            "period": "2025-10-18 ~ 2025-11-16",
+            "totalTrials": 1782,
+            "bins": {
+                "Same Day": {
+                    "count": 691,
+                    "pct": 38.78
+                },
+                "1-3 Days": {
+                    "count": 218,
+                    "pct": 12.23
+                },
+                "4-7 Days": {
+                    "count": 84,
+                    "pct": 4.71
+                },
+                "8-14 Days": {
+                    "count": 90,
+                    "pct": 5.05
+                },
+                "15-30 Days": {
+                    "count": 113,
+                    "pct": 6.34
+                },
+                "30-60 Days": {
+                    "count": 83,
+                    "pct": 4.66
+                },
+                "60-90 Days": {
+                    "count": 45,
+                    "pct": 2.53
+                },
+                "> 90 Days": {
+                    "count": 458,
+                    "pct": 25.7
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-12",
+            "period": "2025-11-17 ~ 2025-12-17",
+            "totalTrials": 2163,
+            "bins": {
+                "Same Day": {
+                    "count": 964,
+                    "pct": 44.57
+                },
+                "1-3 Days": {
+                    "count": 327,
+                    "pct": 15.12
+                },
+                "4-7 Days": {
+                    "count": 120,
+                    "pct": 5.55
+                },
+                "8-14 Days": {
+                    "count": 85,
+                    "pct": 3.93
+                },
+                "15-30 Days": {
+                    "count": 106,
+                    "pct": 4.9
+                },
+                "30-60 Days": {
+                    "count": 87,
+                    "pct": 4.02
+                },
+                "60-90 Days": {
+                    "count": 57,
+                    "pct": 2.64
+                },
+                "> 90 Days": {
+                    "count": 417,
+                    "pct": 19.28
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        }
+    ],
+    "regDeviceData": [
+        {
+            "month": "2025-01",
+            "totalReg": 11451,
+            "boundDevice": 8872,
+            "boundDevicePct": 77.48,
+            "ownerDevice": 7781,
+            "ownerDevicePct": 67.95,
+            "ownerTrials": 1147,
+            "ownerTrialsPct": 14.74,
+            "ownerTrials30d": 863,
+            "ownerTrials30dPct": 11.09
+        },
+        {
+            "month": "2025-02",
+            "totalReg": 10478,
+            "boundDevice": 8191,
+            "boundDevicePct": 78.17,
+            "ownerDevice": 7180,
+            "ownerDevicePct": 68.52,
+            "ownerTrials": 1086,
+            "ownerTrialsPct": 15.13,
+            "ownerTrials30d": 860,
+            "ownerTrials30dPct": 11.98
+        },
+        {
+            "month": "2025-03",
+            "totalReg": 10430,
+            "boundDevice": 8224,
+            "boundDevicePct": 78.85,
+            "ownerDevice": 7193,
+            "ownerDevicePct": 68.96,
+            "ownerTrials": 953,
+            "ownerTrialsPct": 13.25,
+            "ownerTrials30d": 679,
+            "ownerTrials30dPct": 9.44
+        },
+        {
+            "month": "2025-04",
+            "totalReg": 9014,
+            "boundDevice": 7047,
+            "boundDevicePct": 78.18,
+            "ownerDevice": 5855,
+            "ownerDevicePct": 64.95,
+            "ownerTrials": 661,
+            "ownerTrialsPct": 11.29,
+            "ownerTrials30d": 484,
+            "ownerTrials30dPct": 8.27
+        },
+        {
+            "month": "2025-05",
+            "totalReg": 9223,
+            "boundDevice": 7395,
+            "boundDevicePct": 80.18,
+            "ownerDevice": 6071,
+            "ownerDevicePct": 65.82,
+            "ownerTrials": 724,
+            "ownerTrialsPct": 11.93,
+            "ownerTrials30d": 542,
+            "ownerTrials30dPct": 8.93
+        },
+        {
+            "month": "2025-06",
+            "totalReg": 9833,
+            "boundDevice": 7976,
+            "boundDevicePct": 81.11,
+            "ownerDevice": 6538,
+            "ownerDevicePct": 66.49,
+            "ownerTrials": 891,
+            "ownerTrialsPct": 13.63,
+            "ownerTrials30d": 687,
+            "ownerTrials30dPct": 10.51
+        },
+        {
+            "month": "2025-07",
+            "totalReg": 12602,
+            "boundDevice": 10651,
+            "boundDevicePct": 84.52,
+            "ownerDevice": 8709,
+            "ownerDevicePct": 69.11,
+            "ownerTrials": 1239,
+            "ownerTrialsPct": 14.23,
+            "ownerTrials30d": 1046,
+            "ownerTrials30dPct": 12.01
+        },
+        {
+            "month": "2025-08",
+            "totalReg": 12409,
+            "boundDevice": 10408,
+            "boundDevicePct": 83.87,
+            "ownerDevice": 8651,
+            "ownerDevicePct": 69.72,
+            "ownerTrials": 1187,
+            "ownerTrialsPct": 13.72,
+            "ownerTrials30d": 1045,
+            "ownerTrials30dPct": 12.08
+        },
+        {
+            "month": "2025-09",
+            "totalReg": 13984,
+            "boundDevice": 12074,
+            "boundDevicePct": 86.34,
+            "ownerDevice": 10114,
+            "ownerDevicePct": 72.33,
+            "ownerTrials": 1356,
+            "ownerTrialsPct": 13.41,
+            "ownerTrials30d": 1205,
+            "ownerTrials30dPct": 11.91
+        },
+        {
+            "month": "2025-10",
+            "totalReg": 15992,
+            "boundDevice": 13788,
+            "boundDevicePct": 86.22,
+            "ownerDevice": 11546,
+            "ownerDevicePct": 72.2,
+            "ownerTrials": 1278,
+            "ownerTrialsPct": 11.07,
+            "ownerTrials30d": 1150,
+            "ownerTrials30dPct": 9.96
+        },
+        {
+            "month": "2025-11",
+            "totalReg": 17330,
+            "boundDevice": 14673,
+            "boundDevicePct": 84.67,
+            "ownerDevice": 12097,
+            "ownerDevicePct": 69.8,
+            "ownerTrials": 1329,
+            "ownerTrialsPct": 10.99,
+            "ownerTrials30d": 1261,
+            "ownerTrials30dPct": 10.42
+        },
+        {
+            "month": "2025-12",
+            "totalReg": 24997,
+            "boundDevice": 21747,
+            "boundDevicePct": 87.0,
+            "ownerDevice": 18123,
+            "ownerDevicePct": 72.5,
+            "ownerTrials": 1800,
+            "ownerTrialsPct": 9.93,
+            "ownerTrials30d": 1796,
+            "ownerTrials30dPct": 9.91
+        }
+    ],
+    "deviceData": [
+        {
+            "month": "2025-01",
+            "newDevices": 10624
+        },
+        {
+            "month": "2025-02",
+            "newDevices": 9553
+        },
+        {
+            "month": "2025-03",
+            "newDevices": 9689
+        },
+        {
+            "month": "2025-04",
+            "newDevices": 8030
+        },
+        {
+            "month": "2025-05",
+            "newDevices": 8287
+        },
+        {
+            "month": "2025-06",
+            "newDevices": 9038
+        },
+        {
+            "month": "2025-07",
+            "newDevices": 12435
+        },
+        {
+            "month": "2025-08",
+            "newDevices": 11932
+        },
+        {
+            "month": "2025-09",
+            "newDevices": 14962
+        },
+        {
+            "month": "2025-10",
+            "newDevices": 17391
+        },
+        {
+            "month": "2025-11",
+            "newDevices": 17589
+        },
+        {
+            "month": "2025-12",
+            "newDevices": 27075
+        }
+    ],
+    "businessMatrixData": [
+        {
+            "month": "2025-01",
+            "totalDirectBuyers": 13072,
+            "lag1m": 651,
+            "lag1mPct": 4.98,
+            "lag2to4m": 1971,
+            "lag2to4mPct": 15.08,
+            "lag5to7m": 2329,
+            "lag5to7mPct": 17.82,
+            "lag8to12m": 3207,
+            "lag8to12mPct": 24.53,
+            "lagGt12m": 4914,
+            "lagGt12mPct": 37.59
+        },
+        {
+            "month": "2025-02",
+            "totalDirectBuyers": 12557,
+            "lag1m": 590,
+            "lag1mPct": 4.7,
+            "lag2to4m": 1592,
+            "lag2to4mPct": 12.68,
+            "lag5to7m": 2026,
+            "lag5to7mPct": 16.13,
+            "lag8to12m": 3205,
+            "lag8to12mPct": 25.52,
+            "lagGt12m": 5144,
+            "lagGt12mPct": 40.97
+        },
+        {
+            "month": "2025-03",
+            "totalDirectBuyers": 13140,
+            "lag1m": 629,
+            "lag1mPct": 4.79,
+            "lag2to4m": 1471,
+            "lag2to4mPct": 11.19,
+            "lag5to7m": 1849,
+            "lag5to7mPct": 14.07,
+            "lag8to12m": 3384,
+            "lag8to12mPct": 25.75,
+            "lagGt12m": 5807,
+            "lagGt12mPct": 44.19
+        },
+        {
+            "month": "2025-04",
+            "totalDirectBuyers": 12688,
+            "lag1m": 375,
+            "lag1mPct": 2.96,
+            "lag2to4m": 1298,
+            "lag2to4mPct": 10.23,
+            "lag5to7m": 1606,
+            "lag5to7mPct": 12.66,
+            "lag8to12m": 3257,
+            "lag8to12mPct": 25.67,
+            "lagGt12m": 6152,
+            "lagGt12mPct": 48.49
+        },
+        {
+            "month": "2025-05",
+            "totalDirectBuyers": 12600,
+            "lag1m": 386,
+            "lag1mPct": 3.06,
+            "lag2to4m": 1098,
+            "lag2to4mPct": 8.71,
+            "lag5to7m": 1384,
+            "lag5to7mPct": 10.98,
+            "lag8to12m": 3090,
+            "lag8to12mPct": 24.52,
+            "lagGt12m": 6642,
+            "lagGt12mPct": 52.71
+        },
+        {
+            "month": "2025-06",
+            "totalDirectBuyers": 12521,
+            "lag1m": 442,
+            "lag1mPct": 3.53,
+            "lag2to4m": 965,
+            "lag2to4mPct": 7.71,
+            "lag5to7m": 1162,
+            "lag5to7mPct": 9.28,
+            "lag8to12m": 2925,
+            "lag8to12mPct": 23.36,
+            "lagGt12m": 7027,
+            "lagGt12mPct": 56.12
+        },
+        {
+            "month": "2025-07",
+            "totalDirectBuyers": 12994,
+            "lag1m": 667,
+            "lag1mPct": 5.13,
+            "lag2to4m": 898,
+            "lag2to4mPct": 6.91,
+            "lag5to7m": 1103,
+            "lag5to7mPct": 8.49,
+            "lag8to12m": 2639,
+            "lag8to12mPct": 20.31,
+            "lagGt12m": 7687,
+            "lagGt12mPct": 59.16
+        },
+        {
+            "month": "2025-08",
+            "totalDirectBuyers": 13649,
+            "lag1m": 763,
+            "lag1mPct": 5.59,
+            "lag2to4m": 1148,
+            "lag2to4mPct": 8.41,
+            "lag5to7m": 950,
+            "lag5to7mPct": 6.96,
+            "lag8to12m": 2352,
+            "lag8to12mPct": 17.23,
+            "lagGt12m": 8436,
+            "lagGt12mPct": 61.81
+        },
+        {
+            "month": "2025-09",
+            "totalDirectBuyers": 13567,
+            "lag1m": 746,
+            "lag1mPct": 5.5,
+            "lag2to4m": 1243,
+            "lag2to4mPct": 9.16,
+            "lag5to7m": 823,
+            "lag5to7mPct": 6.07,
+            "lag8to12m": 2064,
+            "lag8to12mPct": 15.21,
+            "lagGt12m": 8691,
+            "lagGt12mPct": 64.06
+        },
+        {
+            "month": "2025-10",
+            "totalDirectBuyers": 13177,
+            "lag1m": 733,
+            "lag1mPct": 5.56,
+            "lag2to4m": 1205,
+            "lag2to4mPct": 9.14,
+            "lag5to7m": 739,
+            "lag5to7mPct": 5.61,
+            "lag8to12m": 1751,
+            "lag8to12mPct": 13.29,
+            "lagGt12m": 8749,
+            "lagGt12mPct": 66.4
+        },
+        {
+            "month": "2025-11",
+            "totalDirectBuyers": 12816,
+            "lag1m": 714,
+            "lag1mPct": 5.57,
+            "lag2to4m": 1105,
+            "lag2to4mPct": 8.62,
+            "lag5to7m": 810,
+            "lag5to7mPct": 6.32,
+            "lag8to12m": 1447,
+            "lag8to12mPct": 11.29,
+            "lagGt12m": 8740,
+            "lagGt12mPct": 68.2
+        },
+        {
+            "month": "2025-12",
+            "totalDirectBuyers": 12971,
+            "lag1m": 970,
+            "lag1mPct": 7.48,
+            "lag2to4m": 1069,
+            "lag2to4mPct": 8.24,
+            "lag5to7m": 872,
+            "lag5to7mPct": 6.72,
+            "lag8to12m": 1259,
+            "lag8to12mPct": 9.71,
+            "lagGt12m": 8801,
+            "lagGt12mPct": 67.85
+        }
+    ]
+}
