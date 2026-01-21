@@ -23,6 +23,10 @@
     </header>
 
     <main>
+      <section class="stats-overview" id="kpiContainer">
+        <!-- KPI Cards will be injected by main.js -->
+      </section>
+
       <section class="chart-section">
         <div class="chart-container glass">
           <div class="chart-header">
@@ -107,12 +111,10 @@
                 style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(First + Renewal)</span></th>
             <th style="padding: 1rem;">First Period Paid<br><span
                 style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Trial + Direct)</span></th>
-            <th style="padding: 1rem;">From Trial</th>
-            <th style="padding: 1rem;">% From Trial<br><span
-                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(vs First Period)</span></th>
-            <th style="padding: 1rem;">From Direct</th>
-            <th style="padding: 1rem;">% From Direct<br><span
-                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(vs First Period)</span></th>
+            <th style="padding: 1rem;">From Trial<br><span
+                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(vs Valid Paid)</span></th>
+            <th style="padding: 1rem;">From Direct<br><span
+                style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(vs Valid Paid)</span></th>
             <th style="padding: 1rem;">Renewal Orders</th>
           </tr>
         </thead>
@@ -199,6 +201,8 @@
             <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left;">
               <th style="padding: 1rem;">Month</th>
               <th style="padding: 1rem;">Total Registered Users</th>
+              <th style="padding: 1rem;">从未付过钱用户<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Number/%)</span></th>
               <th style="padding: 1rem;">Bound Device (Any)</th>
               <th style="padding: 1rem;">% Bound<br><span
                   style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Bound / Reg)</span></th>
@@ -221,7 +225,7 @@
     </section>
 
     <section style="margin-top: 3rem;">
-      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">2025 Business Performance Matrix</h2>
+      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">付费用户的注册时间分布</h2>
       <div style="background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem; overflow-x: auto;">
         <table style="width: 100%; border-collapse: collapse; text-align: left;">
           <thead style="background: rgba(255, 255, 255, 0.1);">
@@ -255,21 +259,21 @@
     </section>
 
     <section style="margin-top: 3rem;">
-      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Direct Buyer History Analysis</h2>
+      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">First Period Direct Buyer History Analysis</h2>
       <p>Proportion of monthly direct buyers who had at least one prior valid paid order</p>
       <div style="background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem; overflow-x: auto;">
         <table style="width: 100%; border-collapse: collapse; text-align: left;">
           <thead style="background: rgba(255, 255, 255, 0.1);">
             <tr>
               <th style="padding: 1rem;">Month</th>
-              <th style="padding: 1rem;">Paid Buyers (Direct)</th>
-              <th style="padding: 1rem;">Existing Users<br><span
+              <th style="padding: 1rem;">第一期直接付款用户(Direct)</th>
+              <th style="padding: 1rem;">之前付款过用户<br><span
                   style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Had Prior Orders)</span></th>
               <th style="padding: 1rem;">% Existing</th>
-              <th style="padding: 1rem;">With Active Sub<br><span
+              <th style="padding: 1rem;">有其他订阅用户<br><span
                   style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Overlapping)</span></th>
               <th style="padding: 1rem;">% of Existing</th>
-              <th style="padding: 1rem;">New Users<br><span
+              <th style="padding: 1rem;">第一次购买的用户<br><span
                   style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(First Purchase)</span></th>
               <th style="padding: 1rem;">% New</th>
             </tr>
@@ -280,6 +284,175 @@
         </table>
       </div>
     </section>
+    <section style="margin-top: 3rem;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Detailed Monthly Active Subscription Analysis</h2>
+      <div style="background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+          <thead style="background: rgba(255, 255, 255, 0.1);">
+            <tr>
+              <th rowspan="2" style="padding: 1rem;">Month</th>
+              <th rowspan="2" style="padding: 1rem;">Total Active Subs<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(End of Month)</span></th>
+              <th rowspan="2" style="padding: 1rem; color: #fbbf24;">Paid Active Subs<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Amount != 0)</span></th>
+              <th colspan="3"
+                style="padding: 1rem; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">Paid User
+                Breakdown (By # of Active Subs)</th>
+              <th colspan="2"
+                style="padding: 1rem; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">Paid Plan
+                Distribution</th>
+            </tr>
+            <tr>
+              <th style="padding: 1rem;">1 Sub</th>
+              <th style="padding: 1rem;">2 Subs</th>
+              <th style="padding: 1rem;">>2 Subs</th>
+              <th style="padding: 1rem;">Monthly Plan<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Count & %)</span></th>
+              <th style="padding: 1rem;">Yearly Plan<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Count & %)</span></th>
+            </tr>
+          </thead>
+          <tbody id="detailedActiveSubTableBody">
+            <!-- Data will be populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-top: 3rem;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Monthly PAID Active Subscription Renewal Analysis</h2>
+      <div style="background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+          <thead style="background: rgba(255, 255, 255, 0.1);">
+            <tr>
+              <th rowspan="2" style="padding: 1rem; border-right: 1px solid rgba(255,255,255,0.1);">Month</th>
+              <th rowspan="2"
+                style="padding: 1rem; color: #fbbf24; font-weight: bold; border-right: 1px solid rgba(255,255,255,0.1);">
+                Total PAID Active Subs<br><span style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(End of
+                  Month)</span></th>
+              <th colspan="2"
+                style="padding: 0.5rem; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1);">
+                No Need Renew<br><span style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Carried Over)</span>
+              </th>
+              <th colspan="2"
+                style="padding: 0.5rem; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1);">
+                Expected PAID Renewals<br><span style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Due for
+                  Renew)</span></th>
+              <th colspan="2"
+                style="padding: 0.5rem; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1);">
+                Actual PAID Renewals<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Renewed)</span>
+              </th>
+              <th colspan="2"
+                style="padding: 0.5rem; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1);">
+                Renewal Rate (PAID)</th>
+              <th colspan="3"
+                style="padding: 0.5rem; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">New PAID
+                Subscriptions</th>
+            </tr>
+            <tr>
+              <th style="padding: 0.5rem; font-size: 0.8em; border-right: 1px dotted rgba(255,255,255,0.1);">Monthly
+              </th>
+              <th style="padding: 0.5rem; font-size: 0.8em; border-right: 1px solid rgba(255,255,255,0.1);">Yearly</th>
+              <th style="padding: 0.5rem; font-size: 0.8em; border-right: 1px dotted rgba(255,255,255,0.1);">Monthly
+              </th>
+              <th style="padding: 0.5rem; font-size: 0.8em; border-right: 1px solid rgba(255,255,255,0.1);">Yearly</th>
+              <th style="padding: 0.5rem; font-size: 0.8em; border-right: 1px dotted rgba(255,255,255,0.1);">Monthly
+              </th>
+              <th style="padding: 0.5rem; font-size: 0.8em; border-right: 1px solid rgba(255,255,255,0.1);">Yearly</th>
+              <th style="padding: 0.5rem; font-size: 0.8em; border-right: 1px dotted rgba(255,255,255,0.1);">Monthly
+              </th>
+              <th style="padding: 0.5rem; font-size: 0.8em; border-right: 1px solid rgba(255,255,255,0.1);">Yearly</th>
+              <th style="padding: 0.5rem; font-size: 0.8em; border-right: 1px dotted rgba(255,255,255,0.1);">Total</th>
+              <th
+                style="padding: 0.5rem; font-size: 0.8em; border-right: 1px dotted rgba(255,255,255,0.1); color: #60a5fa;">
+                1st Period</th>
+              <th style="padding: 0.5rem; font-size: 0.8em;">Non-1st</th>
+            </tr>
+          </thead>
+          <tbody id="retentionTableBody">
+            <!-- Data populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="table-section glass" style="margin-top: 2rem; padding: 1.5rem 3rem; border-radius: 16px;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Monthly Subscription Renewal Period Distribution Analysis</h2>
+      <div style="background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+          <thead style="background: rgba(255, 255, 255, 0.1);">
+            <tr>
+              <th rowspan="2" style="padding: 1rem; border-right: 1px solid rgba(255,255,255,0.1);">Month</th>
+              <th rowspan="2" style="padding: 1rem; border-right: 1px solid rgba(255,255,255,0.1);">Expected Monthly
+                Renewals</th>
+              <th rowspan="2" style="padding: 1rem; color: #fbbf24; border-right: 1px solid rgba(255,255,255,0.1);">
+                Actual Monthly Renewals<br><span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">(Number/Rate)</span></th>
+              <th colspan="12"
+                style="padding: 1rem; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">Renewal
+                Period Distribution (Monthly Plans) <br> <span
+                  style="font-size:0.7em; font-weight:normal; color:#94a3b8;">Format: Actual / Expected (Rate)</span>
+              </th>
+            </tr>
+            <tr>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">P1</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">P2</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">P3</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">P4</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">P5</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">P6</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">P7</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">P8</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">P9</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">P10</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">P11</th>
+              <th style="padding: 0.5rem; font-size: 0.75em;">P12+</th>
+            </tr>
+          </thead>
+          <tbody id="renewalPeriodTableBody">
+            <!-- Data populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="table-section glass" style="margin-top: 2rem; padding: 1.5rem 3rem; border-radius: 16px;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">First Period Direct Buyer Registration Distribution Analysis
+      </h2>
+      <div style="background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+          <thead style="background: rgba(255, 255, 255, 0.1);">
+            <tr>
+              <th rowspan="2" style="padding: 1rem; border-right: 1px solid rgba(255,255,255,0.1);">Payment Month</th>
+              <th rowspan="2" style="padding: 1rem; border-right: 1px solid rgba(255,255,255,0.1);">Total First Period
+                Paid Users</th>
+              <th colspan="13"
+                style="padding: 1rem; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">Registration
+                Month Distribution (2025)</th>
+            </tr>
+            <tr>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">Earlier
+              </th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">Jan</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">Feb</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">Mar</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">Apr</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">May</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">Jun</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">Jul</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">Aug</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">Sep</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">Oct</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">Nov</th>
+              <th style="padding: 0.5rem; font-size: 0.75em; border-right: 1px dotted rgba(255,255,255,0.1);">Dec</th>
+            </tr>
+          </thead>
+          <tbody id="firstPeriodRegDistTableBody">
+            <!-- Data populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     </main>
 
     <footer>

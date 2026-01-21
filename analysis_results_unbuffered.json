@@ -1,0 +1,18 @@
+/Users/petercheng/Library/Python/3.9/lib/python/site-packages/paramiko/pkey.py:82: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  "cipher": algorithms.TripleDES,
+/Users/petercheng/Library/Python/3.9/lib/python/site-packages/paramiko/transport.py:253: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  "class": algorithms.TripleDES,
+Connecting to Remote DB via SSH Tunnel...
+2026-01-08 11:52:51,813| ERROR   | Problem setting SSH Forwarder up: Couldn't open tunnel 127.0.0.1:13309 <> osaio-eu-bicenter.cbpim8frjuhu.eu-central-1.rds.amazonaws.com:3306 might be in use or destination not reachable
+Traceback (most recent call last):
+  File "/Users/petercheng/Desktop/code/binew/run_all_analysis.py", line 93, in <module>
+    run_all_queries()
+  File "/Users/petercheng/Desktop/code/binew/run_all_analysis.py", line 21, in run_all_queries
+    with create_ssh_tunnel() as server:
+  File "/Users/petercheng/Library/Python/3.9/lib/python/site-packages/sshtunnel.py", line 1608, in __enter__
+    self.start()
+  File "/Users/petercheng/Library/Python/3.9/lib/python/site-packages/sshtunnel.py", line 1344, in start
+    self._raise(HandlerSSHTunnelForwarderError,
+  File "/Users/petercheng/Library/Python/3.9/lib/python/site-packages/sshtunnel.py", line 1174, in _raise
+    raise exception(reason)
+sshtunnel.HandlerSSHTunnelForwarderError: An error occurred while opening tunnels.

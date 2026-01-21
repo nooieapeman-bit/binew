@@ -4,6 +4,34 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 // Register the plugin to all charts
 Chart.register(ChartDataLabels);
 
+const kpiData = [
+    {
+        "label": "New Trials (7d)",
+        "value": "709",
+        "pop": 13.4
+    },
+    {
+        "label": "New Devices (7d)",
+        "value": "7,974",
+        "pop": -2.1
+    },
+    {
+        "label": "24h Trial Rate",
+        "value": "4.8%",
+        "pop": 16.8
+    },
+    {
+        "label": "4d Trial Rate",
+        "value": "5.7%",
+        "pop": 10.0
+    },
+    {
+        "label": "30d Trial Rate",
+        "value": "5.8%",
+        "pop": -3.4
+    }
+];
+
 const revenueData = [
     597354.56,
     568862.46,
@@ -1022,8 +1050,9 @@ if (tableBody) {
         const fromDirect = breakdown ? breakdown.direct : 0;
 
         // Percentages
-        const pctTrial = first > 0 ? (fromTrial / first * 100).toFixed(2) + '%' : '0.00%';
-        const pctDirect = first > 0 ? (fromDirect / first * 100).toFixed(2) + '%' : '0.00%';
+        const pctTrial = valid > 0 ? (fromTrial / valid * 100).toFixed(2) + '%' : '0.00%';
+        const pctDirect = valid > 0 ? (fromDirect / valid * 100).toFixed(2) + '%' : '0.00%';
+        const pctFirstOfValid = valid > 0 ? (first / valid * 100).toFixed(2) + '%' : '0.00%';
 
         // Accumulate Totals
         grandTotals.trial += trials;
@@ -1040,19 +1069,18 @@ if (tableBody) {
             <td style="padding: 1rem;">${monthLabel}</td>
             <td style="padding: 1rem; color: #fbbf24;">${trials.toLocaleString()}</td>
             <td style="padding: 1rem; color: #10b981;">${valid.toLocaleString()}</td>
-            <td style="padding: 1rem; color: #8b5cf6;">${first.toLocaleString()}</td>
-            <td style="padding: 1rem;">${fromTrial.toLocaleString()}</td>
-            <td style="padding: 1rem; color: #fbbf24;">${pctTrial}</td>
-            <td style="padding: 1rem;">${fromDirect.toLocaleString()}</td>
-            <td style="padding: 1rem; color: #3b82f6;">${pctDirect}</td>
+            <td style="padding: 1rem; color: #8b5cf6;">${first.toLocaleString()} <span style="font-size:0.8em; color:#94a3b8;">(${pctFirstOfValid})</span></td>
+            <td style="padding: 1rem;">${fromTrial.toLocaleString()} <span style="font-size:0.8em; color:#94a3b8;">(${pctTrial})</span></td>
+            <td style="padding: 1rem;">${fromDirect.toLocaleString()} <span style="font-size:0.8em; color:#94a3b8;">(${pctDirect})</span></td>
             <td style="padding: 1rem; color: #06b6d4;">${renewal.toLocaleString()}</td>
         `;
         tableBody.appendChild(tr);
     }
 
     // Render Total Row
-    const grandPctTrial = grandTotals.first > 0 ? (grandTotals.fromTrial / grandTotals.first * 100).toFixed(2) + '%' : '0.00%';
-    const grandPctDirect = grandTotals.first > 0 ? (grandTotals.fromDirect / grandTotals.first * 100).toFixed(2) + '%' : '0.00%';
+    const grandPctTrial = grandTotals.valid > 0 ? (grandTotals.fromTrial / grandTotals.valid * 100).toFixed(2) + '%' : '0.00%';
+    const grandPctDirect = grandTotals.valid > 0 ? (grandTotals.fromDirect / grandTotals.valid * 100).toFixed(2) + '%' : '0.00%';
+    const grandPctFirstOfValid = grandTotals.valid > 0 ? (grandTotals.first / grandTotals.valid * 100).toFixed(2) + '%' : '0.00%';
 
     const totalTr = document.createElement('tr');
     totalTr.style.fontWeight = 'bold';
@@ -1061,11 +1089,9 @@ if (tableBody) {
         <td style="padding: 1rem;">Total</td>
         <td style="padding: 1rem; color: #fbbf24;">${grandTotals.trial.toLocaleString()}</td>
         <td style="padding: 1rem; color: #10b981;">${grandTotals.valid.toLocaleString()}</td>
-        <td style="padding: 1rem; color: #8b5cf6;">${grandTotals.first.toLocaleString()}</td>
-        <td style="padding: 1rem;">${grandTotals.fromTrial.toLocaleString()}</td>
-        <td style="padding: 1rem; color: #fbbf24;">${grandPctTrial}</td>
-        <td style="padding: 1rem;">${grandTotals.fromDirect.toLocaleString()}</td>
-        <td style="padding: 1rem; color: #3b82f6;">${grandPctDirect}</td>
+        <td style="padding: 1rem; color: #8b5cf6;">${grandTotals.first.toLocaleString()} <span style="font-size:0.8em; color:#94a3b8;">(${grandPctFirstOfValid})</span></td>
+        <td style="padding: 1rem;">${grandTotals.fromTrial.toLocaleString()} <span style="font-size:0.8em; color:#94a3b8;">(${grandPctTrial})</span></td>
+        <td style="padding: 1rem;">${grandTotals.fromDirect.toLocaleString()} <span style="font-size:0.8em; color:#94a3b8;">(${grandPctDirect})</span></td>
         <td style="padding: 1rem; color: #06b6d4;">${grandTotals.renewal.toLocaleString()}</td>
     `;
     tableBody.appendChild(totalTr);
@@ -1136,6 +1162,8 @@ const regDeviceData = [
     {
         "month": "2025-01",
         "totalReg": 11451,
+        "neverPaid": 10557,
+        "neverPaidPct": 92.19,
         "boundDevice": 8872,
         "boundDevicePct": 77.48,
         "ownerDevice": 7781,
@@ -1148,134 +1176,156 @@ const regDeviceData = [
     {
         "month": "2025-02",
         "totalReg": 10478,
-        "boundDevice": 8191,
-        "boundDevicePct": 78.17,
-        "ownerDevice": 7180,
-        "ownerDevicePct": 68.52,
-        "ownerTrials": 1086,
-        "ownerTrialsPct": 15.13,
+        "neverPaid": 9665,
+        "neverPaidPct": 92.24,
+        "boundDevice": 8192,
+        "boundDevicePct": 78.18,
+        "ownerDevice": 7181,
+        "ownerDevicePct": 68.53,
+        "ownerTrials": 1088,
+        "ownerTrialsPct": 15.15,
         "ownerTrials30d": 860,
         "ownerTrials30dPct": 11.98
     },
     {
         "month": "2025-03",
         "totalReg": 10430,
-        "boundDevice": 8224,
-        "boundDevicePct": 78.85,
-        "ownerDevice": 7193,
-        "ownerDevicePct": 68.96,
-        "ownerTrials": 953,
-        "ownerTrialsPct": 13.25,
+        "neverPaid": 9747,
+        "neverPaidPct": 93.45,
+        "boundDevice": 8227,
+        "boundDevicePct": 78.88,
+        "ownerDevice": 7194,
+        "ownerDevicePct": 68.97,
+        "ownerTrials": 956,
+        "ownerTrialsPct": 13.29,
         "ownerTrials30d": 679,
         "ownerTrials30dPct": 9.44
     },
     {
         "month": "2025-04",
         "totalReg": 9014,
-        "boundDevice": 7047,
-        "boundDevicePct": 78.18,
+        "neverPaid": 8521,
+        "neverPaidPct": 94.53,
+        "boundDevice": 7048,
+        "boundDevicePct": 78.19,
         "ownerDevice": 5855,
         "ownerDevicePct": 64.95,
-        "ownerTrials": 661,
-        "ownerTrialsPct": 11.29,
+        "ownerTrials": 662,
+        "ownerTrialsPct": 11.31,
         "ownerTrials30d": 484,
         "ownerTrials30dPct": 8.27
     },
     {
         "month": "2025-05",
         "totalReg": 9223,
-        "boundDevice": 7395,
-        "boundDevicePct": 80.18,
-        "ownerDevice": 6071,
-        "ownerDevicePct": 65.82,
-        "ownerTrials": 724,
-        "ownerTrialsPct": 11.93,
+        "neverPaid": 8690,
+        "neverPaidPct": 94.22,
+        "boundDevice": 7396,
+        "boundDevicePct": 80.19,
+        "ownerDevice": 6074,
+        "ownerDevicePct": 65.86,
+        "ownerTrials": 726,
+        "ownerTrialsPct": 11.95,
         "ownerTrials30d": 542,
-        "ownerTrials30dPct": 8.93
+        "ownerTrials30dPct": 8.92
     },
     {
         "month": "2025-06",
         "totalReg": 9833,
-        "boundDevice": 7976,
-        "boundDevicePct": 81.11,
-        "ownerDevice": 6538,
-        "ownerDevicePct": 66.49,
-        "ownerTrials": 890,
-        "ownerTrialsPct": 13.61,
+        "neverPaid": 9159,
+        "neverPaidPct": 93.15,
+        "boundDevice": 7977,
+        "boundDevicePct": 81.12,
+        "ownerDevice": 6537,
+        "ownerDevicePct": 66.48,
+        "ownerTrials": 892,
+        "ownerTrialsPct": 13.65,
         "ownerTrials30d": 687,
         "ownerTrials30dPct": 10.51
     },
     {
         "month": "2025-07",
         "totalReg": 12602,
-        "boundDevice": 10651,
-        "boundDevicePct": 84.52,
-        "ownerDevice": 8709,
-        "ownerDevicePct": 69.11,
-        "ownerTrials": 1239,
-        "ownerTrialsPct": 14.23,
+        "neverPaid": 11645,
+        "neverPaidPct": 92.41,
+        "boundDevice": 10652,
+        "boundDevicePct": 84.53,
+        "ownerDevice": 8710,
+        "ownerDevicePct": 69.12,
+        "ownerTrials": 1241,
+        "ownerTrialsPct": 14.25,
         "ownerTrials30d": 1046,
         "ownerTrials30dPct": 12.01
     },
     {
         "month": "2025-08",
         "totalReg": 12409,
-        "boundDevice": 10408,
-        "boundDevicePct": 83.87,
-        "ownerDevice": 8651,
-        "ownerDevicePct": 69.72,
-        "ownerTrials": 1187,
-        "ownerTrialsPct": 13.72,
+        "neverPaid": 11617,
+        "neverPaidPct": 93.62,
+        "boundDevice": 10411,
+        "boundDevicePct": 83.9,
+        "ownerDevice": 8654,
+        "ownerDevicePct": 69.74,
+        "ownerTrials": 1188,
+        "ownerTrialsPct": 13.73,
         "ownerTrials30d": 1045,
         "ownerTrials30dPct": 12.08
     },
     {
         "month": "2025-09",
         "totalReg": 13984,
-        "boundDevice": 12074,
-        "boundDevicePct": 86.34,
-        "ownerDevice": 10114,
-        "ownerDevicePct": 72.33,
-        "ownerTrials": 1356,
-        "ownerTrialsPct": 13.41,
+        "neverPaid": 13075,
+        "neverPaidPct": 93.5,
+        "boundDevice": 12077,
+        "boundDevicePct": 86.36,
+        "ownerDevice": 10117,
+        "ownerDevicePct": 72.35,
+        "ownerTrials": 1363,
+        "ownerTrialsPct": 13.47,
         "ownerTrials30d": 1205,
         "ownerTrials30dPct": 11.91
     },
     {
         "month": "2025-10",
         "totalReg": 15992,
-        "boundDevice": 13788,
-        "boundDevicePct": 86.22,
-        "ownerDevice": 11546,
-        "ownerDevicePct": 72.2,
-        "ownerTrials": 1278,
-        "ownerTrialsPct": 11.07,
+        "neverPaid": 15221,
+        "neverPaidPct": 95.18,
+        "boundDevice": 13791,
+        "boundDevicePct": 86.24,
+        "ownerDevice": 11548,
+        "ownerDevicePct": 72.21,
+        "ownerTrials": 1285,
+        "ownerTrialsPct": 11.13,
         "ownerTrials30d": 1150,
         "ownerTrials30dPct": 9.96
     },
     {
         "month": "2025-11",
         "totalReg": 17330,
-        "boundDevice": 14673,
-        "boundDevicePct": 84.67,
-        "ownerDevice": 12096,
-        "ownerDevicePct": 69.8,
-        "ownerTrials": 1329,
-        "ownerTrialsPct": 10.99,
+        "neverPaid": 16518,
+        "neverPaidPct": 95.31,
+        "boundDevice": 14678,
+        "boundDevicePct": 84.7,
+        "ownerDevice": 12105,
+        "ownerDevicePct": 69.85,
+        "ownerTrials": 1335,
+        "ownerTrialsPct": 11.03,
         "ownerTrials30d": 1261,
         "ownerTrials30dPct": 10.42
     },
     {
         "month": "2025-12",
         "totalReg": 24997,
-        "boundDevice": 21746,
-        "boundDevicePct": 86.99,
-        "ownerDevice": 18122,
-        "ownerDevicePct": 72.5,
-        "ownerTrials": 1800,
-        "ownerTrialsPct": 9.93,
-        "ownerTrials30d": 1796,
-        "ownerTrials30dPct": 9.91
+        "neverPaid": 24072,
+        "neverPaidPct": 96.3,
+        "boundDevice": 21780,
+        "boundDevicePct": 87.13,
+        "ownerDevice": 18153,
+        "ownerDevicePct": 72.62,
+        "ownerTrials": 1841,
+        "ownerTrialsPct": 10.14,
+        "ownerTrials30d": 1834,
+        "ownerTrials30dPct": 10.1
     }
 ];
 
@@ -1291,6 +1341,7 @@ if (regDeviceTableBody && regDeviceData.length > 0) {
         tr.innerHTML = `
             <td style="padding: 1rem;">${row.month}</td>
             <td style="padding: 1rem; color: #10b981;">${row.totalReg.toLocaleString()}</td>
+            <td style="padding: 1rem; color: #ef4444;">${(row.neverPaid || 0).toLocaleString()} <span style="font-size:0.8em; color:#94a3b8;">(${(row.neverPaidPct || 0)}%)</span></td>
             <td style="padding: 1rem;">${row.boundDevice.toLocaleString()}</td>
             <td style="padding: 1rem; color: #fbbf24;">${row.boundDevicePct}%</td>
             <td style="padding: 1rem;">${row.ownerDevice.toLocaleString()}</td>
@@ -1630,99 +1681,99 @@ if (deviceCtx && typeof deviceData !== 'undefined') {
 const buyerHistoryData = [
     {
         "month": "2025-01",
-        "totalDirectBuyers": 1662,
-        "existingUsers": 1214,
-        "existingUsersPct": 73.04,
-        "activeSubUsers": 436,
-        "activeSubUsersPct": 35.91
+        "totalDirectBuyers": 1903,
+        "existingUsers": 1379,
+        "existingUsersPct": 72.46,
+        "activeSubUsers": 541,
+        "activeSubUsersPct": 39.23
     },
     {
         "month": "2025-02",
-        "totalDirectBuyers": 1648,
-        "existingUsers": 1178,
-        "existingUsersPct": 71.48,
-        "activeSubUsers": 434,
-        "activeSubUsersPct": 36.84
+        "totalDirectBuyers": 1856,
+        "existingUsers": 1326,
+        "existingUsersPct": 71.44,
+        "activeSubUsers": 524,
+        "activeSubUsersPct": 39.52
     },
     {
         "month": "2025-03",
-        "totalDirectBuyers": 1646,
-        "existingUsers": 1271,
-        "existingUsersPct": 77.22,
-        "activeSubUsers": 420,
-        "activeSubUsersPct": 33.04
+        "totalDirectBuyers": 1887,
+        "existingUsers": 1461,
+        "existingUsersPct": 77.42,
+        "activeSubUsers": 540,
+        "activeSubUsersPct": 36.96
     },
     {
         "month": "2025-04",
-        "totalDirectBuyers": 1426,
-        "existingUsers": 1126,
-        "existingUsersPct": 78.96,
-        "activeSubUsers": 373,
-        "activeSubUsersPct": 33.13
+        "totalDirectBuyers": 1648,
+        "existingUsers": 1315,
+        "existingUsersPct": 79.79,
+        "activeSubUsers": 477,
+        "activeSubUsersPct": 36.27
     },
     {
         "month": "2025-05",
-        "totalDirectBuyers": 1406,
-        "existingUsers": 1126,
-        "existingUsersPct": 80.09,
-        "activeSubUsers": 344,
-        "activeSubUsersPct": 30.55
+        "totalDirectBuyers": 1626,
+        "existingUsers": 1313,
+        "existingUsersPct": 80.75,
+        "activeSubUsers": 443,
+        "activeSubUsersPct": 33.74
     },
     {
         "month": "2025-06",
-        "totalDirectBuyers": 1489,
-        "existingUsers": 1171,
-        "existingUsersPct": 78.64,
-        "activeSubUsers": 372,
-        "activeSubUsersPct": 31.77
+        "totalDirectBuyers": 1754,
+        "existingUsers": 1390,
+        "existingUsersPct": 79.25,
+        "activeSubUsers": 487,
+        "activeSubUsersPct": 35.04
     },
     {
         "month": "2025-07",
-        "totalDirectBuyers": 1755,
-        "existingUsers": 1345,
-        "existingUsersPct": 76.64,
-        "activeSubUsers": 493,
-        "activeSubUsersPct": 36.65
+        "totalDirectBuyers": 2080,
+        "existingUsers": 1607,
+        "existingUsersPct": 77.26,
+        "activeSubUsers": 665,
+        "activeSubUsersPct": 41.38
     },
     {
         "month": "2025-08",
-        "totalDirectBuyers": 1815,
-        "existingUsers": 1338,
-        "existingUsersPct": 73.72,
-        "activeSubUsers": 460,
-        "activeSubUsersPct": 34.38
+        "totalDirectBuyers": 2089,
+        "existingUsers": 1551,
+        "existingUsersPct": 74.25,
+        "activeSubUsers": 578,
+        "activeSubUsersPct": 37.27
     },
     {
         "month": "2025-09",
-        "totalDirectBuyers": 1662,
-        "existingUsers": 1186,
-        "existingUsersPct": 71.36,
-        "activeSubUsers": 385,
-        "activeSubUsersPct": 32.46
+        "totalDirectBuyers": 1919,
+        "existingUsers": 1332,
+        "existingUsersPct": 69.41,
+        "activeSubUsers": 469,
+        "activeSubUsersPct": 35.21
     },
     {
         "month": "2025-10",
-        "totalDirectBuyers": 1603,
-        "existingUsers": 1148,
-        "existingUsersPct": 71.62,
-        "activeSubUsers": 402,
-        "activeSubUsersPct": 35.02
+        "totalDirectBuyers": 1871,
+        "existingUsers": 1331,
+        "existingUsersPct": 71.14,
+        "activeSubUsers": 503,
+        "activeSubUsersPct": 37.79
     },
     {
         "month": "2025-11",
-        "totalDirectBuyers": 1607,
-        "existingUsers": 1124,
-        "existingUsersPct": 69.94,
-        "activeSubUsers": 383,
-        "activeSubUsersPct": 34.07
+        "totalDirectBuyers": 1894,
+        "existingUsers": 1312,
+        "existingUsersPct": 69.27,
+        "activeSubUsers": 493,
+        "activeSubUsersPct": 37.58
     },
     {
         "month": "2025-12",
-        "totalDirectBuyers": 1958,
-        "existingUsers": 1290,
-        "existingUsersPct": 65.88,
-        "activeSubUsers": 391,
-        "activeSubUsersPct": 30.31
+        "totalDirectBuyers": 2322,
+        "existingUsers": 1507,
+        "existingUsersPct": 64.9,
+        "activeSubUsers": 519,
+        "activeSubUsersPct": 34.44
     }
 ];
 
@@ -1755,25 +1806,994 @@ if (historyTableBody && typeof buyerHistoryData !== 'undefined') {
 }
 // 10. Active Subscription Data
 const activeSubscriptionData = [
-    { "month": "2025-01", "activeSubscriptions": 19757 },
-    { "month": "2025-02", "activeSubscriptions": 19762 },
-    { "month": "2025-03", "activeSubscriptions": 20173 },
-    { "month": "2025-04", "activeSubscriptions": 19858 },
-    { "month": "2025-05", "activeSubscriptions": 19777 },
-    { "month": "2025-06", "activeSubscriptions": 19903 },
-    { "month": "2025-07", "activeSubscriptions": 20688 },
-    { "month": "2025-08", "activeSubscriptions": 21405 },
-    { "month": "2025-09", "activeSubscriptions": 21701 },
-    { "month": "2025-10", "activeSubscriptions": 21660 },
-    { "month": "2025-11", "activeSubscriptions": 21782 },
-    { "month": "2025-12", "activeSubscriptions": 22853 }
+    {
+        "month": "2025-01",
+        "totalActiveSubs": 20057,
+        "paidActiveSubs": 19123,
+        "users1": 12505,
+        "users2": 2402,
+        "usersMany": 505,
+        "monthlyCount": 15803,
+        "monthlyPct": 82.64,
+        "yearlyCount": 3320,
+        "yearlyPct": 17.36
+    },
+    {
+        "month": "2025-02",
+        "totalActiveSubs": 20148,
+        "paidActiveSubs": 19037,
+        "users1": 12379,
+        "users2": 2412,
+        "usersMany": 515,
+        "monthlyCount": 15590,
+        "monthlyPct": 81.89,
+        "yearlyCount": 3447,
+        "yearlyPct": 18.11
+    },
+    {
+        "month": "2025-03",
+        "totalActiveSubs": 20490,
+        "paidActiveSubs": 19614,
+        "users1": 12672,
+        "users2": 2509,
+        "usersMany": 535,
+        "monthlyCount": 16033,
+        "monthlyPct": 81.74,
+        "yearlyCount": 3581,
+        "yearlyPct": 18.26
+    },
+    {
+        "month": "2025-04",
+        "totalActiveSubs": 20196,
+        "paidActiveSubs": 19421,
+        "users1": 12431,
+        "users2": 2498,
+        "usersMany": 557,
+        "monthlyCount": 15778,
+        "monthlyPct": 81.24,
+        "yearlyCount": 3643,
+        "yearlyPct": 18.76
+    },
+    {
+        "month": "2025-05",
+        "totalActiveSubs": 20109,
+        "paidActiveSubs": 19308,
+        "users1": 12325,
+        "users2": 2473,
+        "usersMany": 570,
+        "monthlyCount": 15606,
+        "monthlyPct": 80.83,
+        "yearlyCount": 3702,
+        "yearlyPct": 19.17
+    },
+    {
+        "month": "2025-06",
+        "totalActiveSubs": 20148,
+        "paidActiveSubs": 19296,
+        "users1": 12346,
+        "users2": 2466,
+        "usersMany": 562,
+        "monthlyCount": 15549,
+        "monthlyPct": 80.58,
+        "yearlyCount": 3747,
+        "yearlyPct": 19.42
+    },
+    {
+        "month": "2025-07",
+        "totalActiveSubs": 20828,
+        "paidActiveSubs": 19748,
+        "users1": 12639,
+        "users2": 2490,
+        "usersMany": 588,
+        "monthlyCount": 15923,
+        "monthlyPct": 80.63,
+        "yearlyCount": 3825,
+        "yearlyPct": 19.37
+    },
+    {
+        "month": "2025-08",
+        "totalActiveSubs": 21538,
+        "paidActiveSubs": 20536,
+        "users1": 13151,
+        "users2": 2601,
+        "usersMany": 607,
+        "monthlyCount": 16181,
+        "monthlyPct": 78.79,
+        "yearlyCount": 4355,
+        "yearlyPct": 21.21
+    },
+    {
+        "month": "2025-09",
+        "totalActiveSubs": 21849,
+        "paidActiveSubs": 20915,
+        "users1": 13432,
+        "users2": 2613,
+        "usersMany": 627,
+        "monthlyCount": 16014,
+        "monthlyPct": 76.57,
+        "yearlyCount": 4901,
+        "yearlyPct": 23.43
+    },
+    {
+        "month": "2025-10",
+        "totalActiveSubs": 21931,
+        "paidActiveSubs": 21013,
+        "users1": 13415,
+        "users2": 2643,
+        "usersMany": 640,
+        "monthlyCount": 15695,
+        "monthlyPct": 74.69,
+        "yearlyCount": 5318,
+        "yearlyPct": 25.31
+    },
+    {
+        "month": "2025-11",
+        "totalActiveSubs": 22159,
+        "paidActiveSubs": 21031,
+        "users1": 13308,
+        "users2": 2668,
+        "usersMany": 658,
+        "monthlyCount": 15328,
+        "monthlyPct": 72.88,
+        "yearlyCount": 5703,
+        "yearlyPct": 27.12
+    },
+    {
+        "month": "2025-12",
+        "totalActiveSubs": 23495,
+        "paidActiveSubs": 21772,
+        "users1": 13677,
+        "users2": 2768,
+        "usersMany": 705,
+        "monthlyCount": 15460,
+        "monthlyPct": 71.01,
+        "yearlyCount": 6312,
+        "yearlyPct": 28.99
+    }
+];
+
+const retentionData = [
+    {
+        "month": "2025-01",
+        "totalActiveEnd": 19123,
+        "noNeedM": 55,
+        "noNeedY": 3027,
+        "expM": 15975,
+        "expY": 133,
+        "actM": 13772,
+        "actY": 90,
+        "rateM": 86.21,
+        "rateY": 67.67,
+        "rateTotal": 86.06,
+        "newSubs": 2179,
+        "newFirst": 2125,
+        "newNonFirst": 54
+    },
+    {
+        "month": "2025-02",
+        "totalActiveEnd": 19037,
+        "noNeedM": 1217,
+        "noNeedY": 3198,
+        "expM": 14586,
+        "expY": 122,
+        "actM": 12386,
+        "actY": 71,
+        "rateM": 84.92,
+        "rateY": 58.2,
+        "rateTotal": 84.7,
+        "newSubs": 2165,
+        "newFirst": 2095,
+        "newNonFirst": 70
+    },
+    {
+        "month": "2025-03",
+        "totalActiveEnd": 19614,
+        "noNeedM": 37,
+        "noNeedY": 3250,
+        "expM": 15553,
+        "expY": 197,
+        "actM": 13572,
+        "actY": 133,
+        "rateM": 87.26,
+        "rateY": 67.51,
+        "rateTotal": 87.02,
+        "newSubs": 2622,
+        "newFirst": 2138,
+        "newNonFirst": 484
+    },
+    {
+        "month": "2025-04",
+        "totalActiveEnd": 19421,
+        "noNeedM": 103,
+        "noNeedY": 3377,
+        "expM": 15930,
+        "expY": 204,
+        "actM": 13904,
+        "actY": 118,
+        "rateM": 87.28,
+        "rateY": 57.84,
+        "rateTotal": 86.91,
+        "newSubs": 1919,
+        "newFirst": 1654,
+        "newNonFirst": 265
+    },
+    {
+        "month": "2025-05",
+        "totalActiveEnd": 19308,
+        "noNeedM": 11,
+        "noNeedY": 3436,
+        "expM": 15767,
+        "expY": 207,
+        "actM": 13869,
+        "actY": 135,
+        "rateM": 87.96,
+        "rateY": 65.22,
+        "rateTotal": 87.67,
+        "newSubs": 1857,
+        "newFirst": 1645,
+        "newNonFirst": 212
+    },
+    {
+        "month": "2025-06",
+        "totalActiveEnd": 19296,
+        "noNeedM": 125,
+        "noNeedY": 3479,
+        "expM": 15481,
+        "expY": 223,
+        "actM": 13530,
+        "actY": 132,
+        "rateM": 87.4,
+        "rateY": 59.19,
+        "rateTotal": 87.0,
+        "newSubs": 2030,
+        "newFirst": 1840,
+        "newNonFirst": 190
+    },
+    {
+        "month": "2025-07",
+        "totalActiveEnd": 19748,
+        "noNeedM": 9,
+        "noNeedY": 3500,
+        "expM": 15540,
+        "expY": 247,
+        "actM": 13671,
+        "actY": 150,
+        "rateM": 87.97,
+        "rateY": 60.73,
+        "rateTotal": 87.55,
+        "newSubs": 2418,
+        "newFirst": 2224,
+        "newNonFirst": 194
+    },
+    {
+        "month": "2025-08",
+        "totalActiveEnd": 20536,
+        "noNeedM": 42,
+        "noNeedY": 3532,
+        "expM": 15881,
+        "expY": 293,
+        "actM": 14032,
+        "actY": 169,
+        "rateM": 88.36,
+        "rateY": 57.68,
+        "rateTotal": 87.8,
+        "newSubs": 2761,
+        "newFirst": 2536,
+        "newNonFirst": 225
+    },
+    {
+        "month": "2025-09",
+        "totalActiveEnd": 20915,
+        "noNeedM": 139,
+        "noNeedY": 3964,
+        "expM": 16042,
+        "expY": 391,
+        "actM": 14106,
+        "actY": 214,
+        "rateM": 87.93,
+        "rateY": 54.73,
+        "rateTotal": 87.14,
+        "newSubs": 2492,
+        "newFirst": 2254,
+        "newNonFirst": 238
+    },
+    {
+        "month": "2025-10",
+        "totalActiveEnd": 21013,
+        "noNeedM": 8,
+        "noNeedY": 4504,
+        "expM": 16006,
+        "expY": 397,
+        "actM": 13954,
+        "actY": 212,
+        "rateM": 87.18,
+        "rateY": 53.4,
+        "rateTotal": 86.36,
+        "newSubs": 2335,
+        "newFirst": 2092,
+        "newNonFirst": 243
+    },
+    {
+        "month": "2025-11",
+        "totalActiveEnd": 21031,
+        "noNeedM": 115,
+        "noNeedY": 4866,
+        "expM": 15580,
+        "expY": 452,
+        "actM": 13568,
+        "actY": 264,
+        "rateM": 87.09,
+        "rateY": 58.41,
+        "rateTotal": 86.28,
+        "newSubs": 2218,
+        "newFirst": 2039,
+        "newNonFirst": 179
+    },
+    {
+        "month": "2025-12",
+        "totalActiveEnd": 21772,
+        "noNeedM": 9,
+        "noNeedY": 5382,
+        "expM": 15319,
+        "expY": 321,
+        "actM": 13407,
+        "actY": 189,
+        "rateM": 87.52,
+        "rateY": 58.88,
+        "rateTotal": 86.93,
+        "newSubs": 2780,
+        "newFirst": 2626,
+        "newNonFirst": 154
+    }
+];
+
+const renewalPeriodData = [
+    {
+        "month": "2025-01",
+        "expM": 15975,
+        "actM": 13772,
+        "rateM": 86.21,
+        "exp_bins": {
+            "P1": 2998,
+            "P2": 2000,
+            "P3": 1696,
+            "P4": 1599,
+            "P5": 1504,
+            "P6": 1184,
+            "P7": 987,
+            "P8": 850,
+            "P9": 725,
+            "P10": 602,
+            "P11": 546,
+            "P12_plus": 1281
+        },
+        "act_bins": {
+            "P1": 2288,
+            "P2": 1636,
+            "P3": 1427,
+            "P4": 1382,
+            "P5": 1322,
+            "P6": 1077,
+            "P7": 905,
+            "P8": 786,
+            "P9": 668,
+            "P10": 558,
+            "P11": 512,
+            "P12_plus": 1210
+        }
+    },
+    {
+        "month": "2025-02",
+        "expM": 14586,
+        "actM": 12386,
+        "rateM": 84.92,
+        "exp_bins": {
+            "P1": 2575,
+            "P2": 1586,
+            "P3": 1438,
+            "P4": 1266,
+            "P5": 1253,
+            "P6": 1209,
+            "P7": 946,
+            "P8": 852,
+            "P9": 728,
+            "P10": 618,
+            "P11": 509,
+            "P12_plus": 1601
+        },
+        "act_bins": {
+            "P1": 1898,
+            "P2": 1288,
+            "P3": 1214,
+            "P4": 1081,
+            "P5": 1076,
+            "P6": 1053,
+            "P7": 848,
+            "P8": 771,
+            "P9": 654,
+            "P10": 566,
+            "P11": 455,
+            "P12_plus": 1482
+        }
+    },
+    {
+        "month": "2025-03",
+        "expM": 15553,
+        "actM": 13572,
+        "rateM": 87.26,
+        "exp_bins": {
+            "P1": 3042,
+            "P2": 1519,
+            "P3": 1331,
+            "P4": 1259,
+            "P5": 1154,
+            "P6": 1115,
+            "P7": 1117,
+            "P8": 917,
+            "P9": 800,
+            "P10": 686,
+            "P11": 588,
+            "P12_plus": 2024
+        },
+        "act_bins": {
+            "P1": 2259,
+            "P2": 1297,
+            "P3": 1147,
+            "P4": 1124,
+            "P5": 1041,
+            "P6": 1002,
+            "P7": 1032,
+            "P8": 834,
+            "P9": 761,
+            "P10": 634,
+            "P11": 555,
+            "P12_plus": 1886
+        }
+    },
+    {
+        "month": "2025-04",
+        "expM": 15930,
+        "actM": 13904,
+        "rateM": 87.28,
+        "exp_bins": {
+            "P1": 3187,
+            "P2": 1272,
+            "P3": 1261,
+            "P4": 1117,
+            "P5": 1126,
+            "P6": 1051,
+            "P7": 1050,
+            "P8": 1031,
+            "P9": 872,
+            "P10": 792,
+            "P11": 660,
+            "P12_plus": 2508
+        },
+        "act_bins": {
+            "P1": 2399,
+            "P2": 1054,
+            "P3": 1088,
+            "P4": 980,
+            "P5": 1007,
+            "P6": 952,
+            "P7": 951,
+            "P8": 951,
+            "P9": 806,
+            "P10": 725,
+            "P11": 622,
+            "P12_plus": 2369
+        }
+    },
+    {
+        "month": "2025-05",
+        "expM": 15767,
+        "actM": 13869,
+        "rateM": 87.96,
+        "exp_bins": {
+            "P1": 2337,
+            "P2": 1608,
+            "P3": 1338,
+            "P4": 1064,
+            "P5": 968,
+            "P6": 991,
+            "P7": 961,
+            "P8": 959,
+            "P9": 960,
+            "P10": 828,
+            "P11": 734,
+            "P12_plus": 3013
+        },
+        "act_bins": {
+            "P1": 1762,
+            "P2": 1343,
+            "P3": 1147,
+            "P4": 927,
+            "P5": 863,
+            "P6": 905,
+            "P7": 886,
+            "P8": 875,
+            "P9": 883,
+            "P10": 766,
+            "P11": 684,
+            "P12_plus": 2826
+        }
+    },
+    {
+        "month": "2025-06",
+        "expM": 15481,
+        "actM": 13530,
+        "rateM": 87.4,
+        "exp_bins": {
+            "P1": 2107,
+            "P2": 1366,
+            "P3": 1284,
+            "P4": 1113,
+            "P5": 910,
+            "P6": 858,
+            "P7": 892,
+            "P8": 897,
+            "P9": 872,
+            "P10": 868,
+            "P11": 783,
+            "P12_plus": 3530
+        },
+        "act_bins": {
+            "P1": 1494,
+            "P2": 1125,
+            "P3": 1106,
+            "P4": 972,
+            "P5": 808,
+            "P6": 765,
+            "P7": 824,
+            "P8": 824,
+            "P9": 801,
+            "P10": 802,
+            "P11": 723,
+            "P12_plus": 3286
+        }
+    },
+    {
+        "month": "2025-07",
+        "expM": 15540,
+        "actM": 13671,
+        "rateM": 87.97,
+        "exp_bins": {
+            "P1": 2396,
+            "P2": 1273,
+            "P3": 1056,
+            "P4": 1067,
+            "P5": 935,
+            "P6": 800,
+            "P7": 749,
+            "P8": 820,
+            "P9": 819,
+            "P10": 794,
+            "P11": 800,
+            "P12_plus": 4027
+        },
+        "act_bins": {
+            "P1": 1776,
+            "P2": 1038,
+            "P3": 916,
+            "P4": 946,
+            "P5": 819,
+            "P6": 703,
+            "P7": 692,
+            "P8": 754,
+            "P9": 740,
+            "P10": 724,
+            "P11": 738,
+            "P12_plus": 3825
+        }
+    },
+    {
+        "month": "2025-08",
+        "expM": 15881,
+        "actM": 14032,
+        "rateM": 88.36,
+        "exp_bins": {
+            "P1": 2727,
+            "P2": 1474,
+            "P3": 950,
+            "P4": 876,
+            "P5": 915,
+            "P6": 799,
+            "P7": 698,
+            "P8": 670,
+            "P9": 744,
+            "P10": 747,
+            "P11": 720,
+            "P12_plus": 4559
+        },
+        "act_bins": {
+            "P1": 2134,
+            "P2": 1216,
+            "P3": 829,
+            "P4": 770,
+            "P5": 816,
+            "P6": 717,
+            "P7": 643,
+            "P8": 617,
+            "P9": 671,
+            "P10": 687,
+            "P11": 660,
+            "P12_plus": 4272
+        }
+    },
+    {
+        "month": "2025-09",
+        "expM": 16042,
+        "actM": 14106,
+        "rateM": 87.93,
+        "exp_bins": {
+            "P1": 2509,
+            "P2": 1780,
+            "P3": 1160,
+            "P4": 788,
+            "P5": 749,
+            "P6": 809,
+            "P7": 706,
+            "P8": 633,
+            "P9": 603,
+            "P10": 666,
+            "P11": 695,
+            "P12_plus": 4944
+        },
+        "act_bins": {
+            "P1": 1881,
+            "P2": 1452,
+            "P3": 1002,
+            "P4": 696,
+            "P5": 656,
+            "P6": 714,
+            "P7": 658,
+            "P8": 577,
+            "P9": 560,
+            "P10": 612,
+            "P11": 641,
+            "P12_plus": 4657
+        }
+    },
+    {
+        "month": "2025-10",
+        "expM": 16006,
+        "actM": 13954,
+        "rateM": 87.18,
+        "exp_bins": {
+            "P1": 2223,
+            "P2": 1637,
+            "P3": 1434,
+            "P4": 968,
+            "P5": 677,
+            "P6": 650,
+            "P7": 710,
+            "P8": 653,
+            "P9": 571,
+            "P10": 564,
+            "P11": 607,
+            "P12_plus": 5312
+        },
+        "act_bins": {
+            "P1": 1570,
+            "P2": 1294,
+            "P3": 1207,
+            "P4": 822,
+            "P5": 617,
+            "P6": 583,
+            "P7": 653,
+            "P8": 603,
+            "P9": 525,
+            "P10": 536,
+            "P11": 558,
+            "P12_plus": 4986
+        }
+    },
+    {
+        "month": "2025-11",
+        "expM": 15580,
+        "actM": 13568,
+        "rateM": 87.09,
+        "exp_bins": {
+            "P1": 2012,
+            "P2": 1292,
+            "P3": 1235,
+            "P4": 1195,
+            "P5": 806,
+            "P6": 601,
+            "P7": 572,
+            "P8": 635,
+            "P9": 598,
+            "P10": 525,
+            "P11": 534,
+            "P12_plus": 5575
+        },
+        "act_bins": {
+            "P1": 1427,
+            "P2": 1024,
+            "P3": 1017,
+            "P4": 983,
+            "P5": 691,
+            "P6": 536,
+            "P7": 516,
+            "P8": 583,
+            "P9": 552,
+            "P10": 493,
+            "P11": 506,
+            "P12_plus": 5240
+        }
+    },
+    {
+        "month": "2025-12",
+        "expM": 15319,
+        "actM": 13407,
+        "rateM": 87.52,
+        "exp_bins": {
+            "P1": 2164,
+            "P2": 1186,
+            "P3": 960,
+            "P4": 979,
+            "P5": 958,
+            "P6": 674,
+            "P7": 522,
+            "P8": 520,
+            "P9": 581,
+            "P10": 541,
+            "P11": 484,
+            "P12_plus": 5750
+        },
+        "act_bins": {
+            "P1": 1508,
+            "P2": 960,
+            "P3": 796,
+            "P4": 834,
+            "P5": 854,
+            "P6": 595,
+            "P7": 481,
+            "P8": 482,
+            "P9": 537,
+            "P10": 499,
+            "P11": 455,
+            "P12_plus": 5406
+        }
+    }
+];
+
+const firstPeriodRegDist = [
+    {
+        "month": "2025-01",
+        "userCount": 2213,
+        "regDist": {
+            "2025-01": 499,
+            "2025-02": 0,
+            "2025-03": 0,
+            "2025-04": 0,
+            "2025-05": 0,
+            "2025-06": 0,
+            "2025-07": 0,
+            "2025-08": 0,
+            "2025-09": 0,
+            "2025-10": 0,
+            "2025-11": 0,
+            "2025-12": 0,
+            "Earlier": 1714
+        }
+    },
+    {
+        "month": "2025-02",
+        "userCount": 2260,
+        "regDist": {
+            "2025-01": 181,
+            "2025-02": 456,
+            "2025-03": 0,
+            "2025-04": 0,
+            "2025-05": 0,
+            "2025-06": 0,
+            "2025-07": 0,
+            "2025-08": 0,
+            "2025-09": 0,
+            "2025-10": 0,
+            "2025-11": 0,
+            "2025-12": 0,
+            "Earlier": 1623
+        }
+    },
+    {
+        "month": "2025-03",
+        "userCount": 2113,
+        "regDist": {
+            "2025-01": 103,
+            "2025-02": 161,
+            "2025-03": 371,
+            "2025-04": 0,
+            "2025-05": 0,
+            "2025-06": 0,
+            "2025-07": 0,
+            "2025-08": 0,
+            "2025-09": 0,
+            "2025-10": 0,
+            "2025-11": 0,
+            "2025-12": 0,
+            "Earlier": 1478
+        }
+    },
+    {
+        "month": "2025-04",
+        "userCount": 1805,
+        "regDist": {
+            "2025-01": 94,
+            "2025-02": 75,
+            "2025-03": 118,
+            "2025-04": 257,
+            "2025-05": 0,
+            "2025-06": 0,
+            "2025-07": 0,
+            "2025-08": 0,
+            "2025-09": 0,
+            "2025-10": 0,
+            "2025-11": 0,
+            "2025-12": 0,
+            "Earlier": 1261
+        }
+    },
+    {
+        "month": "2025-05",
+        "userCount": 1814,
+        "regDist": {
+            "2025-01": 59,
+            "2025-02": 58,
+            "2025-03": 93,
+            "2025-04": 101,
+            "2025-05": 296,
+            "2025-06": 0,
+            "2025-07": 0,
+            "2025-08": 0,
+            "2025-09": 0,
+            "2025-10": 0,
+            "2025-11": 0,
+            "2025-12": 0,
+            "Earlier": 1207
+        }
+    },
+    {
+        "month": "2025-06",
+        "userCount": 1846,
+        "regDist": {
+            "2025-01": 60,
+            "2025-02": 54,
+            "2025-03": 53,
+            "2025-04": 56,
+            "2025-05": 116,
+            "2025-06": 373,
+            "2025-07": 0,
+            "2025-08": 0,
+            "2025-09": 0,
+            "2025-10": 0,
+            "2025-11": 0,
+            "2025-12": 0,
+            "Earlier": 1134
+        }
+    },
+    {
+        "month": "2025-07",
+        "userCount": 2276,
+        "regDist": {
+            "2025-01": 51,
+            "2025-02": 63,
+            "2025-03": 57,
+            "2025-04": 50,
+            "2025-05": 79,
+            "2025-06": 153,
+            "2025-07": 545,
+            "2025-08": 0,
+            "2025-09": 0,
+            "2025-10": 0,
+            "2025-11": 0,
+            "2025-12": 0,
+            "Earlier": 1278
+        }
+    },
+    {
+        "month": "2025-08",
+        "userCount": 2369,
+        "regDist": {
+            "2025-01": 60,
+            "2025-02": 61,
+            "2025-03": 51,
+            "2025-04": 29,
+            "2025-05": 50,
+            "2025-06": 79,
+            "2025-07": 207,
+            "2025-08": 520,
+            "2025-09": 0,
+            "2025-10": 0,
+            "2025-11": 0,
+            "2025-12": 0,
+            "Earlier": 1312
+        }
+    },
+    {
+        "month": "2025-09",
+        "userCount": 2108,
+        "regDist": {
+            "2025-01": 43,
+            "2025-02": 45,
+            "2025-03": 50,
+            "2025-04": 39,
+            "2025-05": 44,
+            "2025-06": 56,
+            "2025-07": 114,
+            "2025-08": 137,
+            "2025-09": 570,
+            "2025-10": 0,
+            "2025-11": 0,
+            "2025-12": 0,
+            "Earlier": 1010
+        }
+    },
+    {
+        "month": "2025-10",
+        "userCount": 1764,
+        "regDist": {
+            "2025-01": 38,
+            "2025-02": 32,
+            "2025-03": 38,
+            "2025-04": 22,
+            "2025-05": 32,
+            "2025-06": 48,
+            "2025-07": 61,
+            "2025-08": 56,
+            "2025-09": 159,
+            "2025-10": 462,
+            "2025-11": 0,
+            "2025-12": 0,
+            "Earlier": 816
+        }
+    },
+    {
+        "month": "2025-11",
+        "userCount": 1611,
+        "regDist": {
+            "2025-01": 29,
+            "2025-02": 24,
+            "2025-03": 26,
+            "2025-04": 27,
+            "2025-05": 22,
+            "2025-06": 33,
+            "2025-07": 64,
+            "2025-08": 42,
+            "2025-09": 96,
+            "2025-10": 158,
+            "2025-11": 464,
+            "2025-12": 0,
+            "Earlier": 626
+        }
+    },
+    {
+        "month": "2025-12",
+        "userCount": 1279,
+        "regDist": {
+            "2025-01": 22,
+            "2025-02": 23,
+            "2025-03": 25,
+            "2025-04": 16,
+            "2025-05": 22,
+            "2025-06": 29,
+            "2025-07": 48,
+            "2025-08": 32,
+            "2025-09": 59,
+            "2025-10": 69,
+            "2025-11": 135,
+            "2025-12": 291,
+            "Earlier": 508
+        }
+    }
 ];
 
 // 10. Active Subscriptions Chart
 const activeSubCtx = document.getElementById('activeSubChart');
 if (activeSubCtx && typeof activeSubscriptionData !== 'undefined') {
     const subLabels = activeSubscriptionData.map(d => d.month);
-    const subValues = activeSubscriptionData.map(d => d.activeSubscriptions);
+    const subValues = activeSubscriptionData.map(d => d.totalActiveSubs);
 
     new Chart(activeSubCtx, {
         type: 'bar',
@@ -1799,5 +2819,160 @@ if (activeSubCtx && typeof activeSubscriptionData !== 'undefined') {
                 }
             }
         }
+    });
+}
+
+// 11. Render Detailed Active Subscription Table
+const detailedActiveTableBody = document.getElementById('detailedActiveSubTableBody');
+if (detailedActiveTableBody && typeof activeSubscriptionData !== 'undefined') {
+    activeSubscriptionData.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td style="padding: 1rem;">${row.month}</td>
+            <td style="padding: 1rem; font-weight: bold;">${row.totalActiveSubs.toLocaleString()}</td>
+            <td style="padding: 1rem; color: #fbbf24; font-weight: bold;">${row.paidActiveSubs.toLocaleString()}</td>
+            <td style="padding: 1rem; color: #94a3b8;">${row.users1.toLocaleString()}</td>
+            <td style="padding: 1rem; color: #60a5fa;">${row.users2.toLocaleString()}</td>
+            <td style="padding: 1rem; color: #fbbf24;">${row.usersMany.toLocaleString()}</td>
+            <td style="padding: 1rem;">${row.monthlyCount.toLocaleString()} <span style="color: #94a3b8; font-size: 0.9em;">(${row.monthlyPct}%)</span></td>
+            <td style="padding: 1rem;">${row.yearlyCount.toLocaleString()} <span style="color: #94a3b8; font-size: 0.9em;">(${row.yearlyPct}%)</span></td>
+        `;
+        detailedActiveTableBody.appendChild(tr);
+    });
+}
+
+// 12. Render Retention Table
+const retentionTableBody = document.getElementById('retentionTableBody');
+if (retentionTableBody && typeof retentionData !== 'undefined') {
+    retentionData.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td style="padding: 1rem; border-right: 1px solid rgba(255,255,255,0.1);">${row.month}</td>
+            <td style="padding: 1rem; font-weight: bold; border-right: 1px solid rgba(255,255,255,0.1);">${row.totalActiveEnd.toLocaleString()}</td>
+            
+            <td style="padding: 0.5rem; text-align: center; border-right: 1px dotted rgba(255,255,255,0.1); color: #94a3b8;">${row.noNeedM.toLocaleString()}</td>
+            <td style="padding: 0.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); color: #94a3b8;">${row.noNeedY.toLocaleString()}</td>
+            
+            <td style="padding: 0.5rem; text-align: center; border-right: 1px dotted rgba(255,255,255,0.1); color: #f87171;">${row.expM.toLocaleString()}</td>
+            <td style="padding: 0.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); color: #f87171;">${row.expY.toLocaleString()}</td>
+            
+            <td style="padding: 0.5rem; text-align: center; border-right: 1px dotted rgba(255,255,255,0.1); color: #4ade80;">${row.actM.toLocaleString()}</td>
+            <td style="padding: 0.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); color: #4ade80;">${row.actY.toLocaleString()}</td>
+            
+            <td style="padding: 0.5rem; text-align: center; border-right: 1px dotted rgba(255,255,255,0.1);">${row.rateM}%</td>
+            <td style="padding: 0.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.1);">${row.rateY}%</td>
+            
+            <td style="padding: 0.5rem; text-align: center; border-right: 1px dotted rgba(255,255,255,0.1); font-weight: bold;">${row.newSubs.toLocaleString()}</td>
+            <td style="padding: 0.5rem; text-align: center; border-right: 1px dotted rgba(255,255,255,0.1); color: #60a5fa;">${row.newFirst.toLocaleString()}</td>
+            <td style="padding: 0.5rem; text-align: center;">${row.newNonFirst.toLocaleString()}</td>
+        `;
+        retentionTableBody.appendChild(tr);
+    });
+}
+
+// 13. Render Monthly Renewal Period Distribution Table
+const renewalPeriodTableBody = document.getElementById('renewalPeriodTableBody');
+if (renewalPeriodTableBody && typeof renewalPeriodData !== 'undefined') {
+    renewalPeriodData.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+
+        const binKeys = ['P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8', 'P9', 'P10', 'P11', 'P12_plus'];
+        let binCells = '';
+        binKeys.forEach((key, index) => {
+            const act = row.act_bins[key] || 0;
+            const exp = row.exp_bins[key] || 0;
+            const rate = exp > 0 ? (act / exp * 100).toFixed(1) + '%' : '0.0%';
+
+            // Remove border-right for the last item
+            const borderStyle = (index === binKeys.length - 1) ? '' : 'border-right: 1px dotted rgba(255,255,255,0.1);';
+
+            binCells += `
+                <td style="padding: 1rem; text-align: center; ${borderStyle}">
+                    <div style="color: #4ade80; font-weight: bold;">${act.toLocaleString()} / ${exp.toLocaleString()}</div>
+                    <div style="font-size: 0.75rem; color: #94a3b8;">${rate}</div>
+                </td>
+            `;
+        });
+
+        tr.innerHTML = `
+            <td style="padding: 1rem; border-right: 1px solid rgba(255,255,255,0.1);">${row.month}</td>
+            <td style="padding: 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); color: #94a3b8;">${row.expM.toLocaleString()}</td>
+            <td style="padding: 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); color: #fbbf24; font-weight: bold;">
+                ${row.actM.toLocaleString()} <span style="font-size: 0.8em; color: #94a3b8;">(${row.rateM}%)</span>
+            </td>
+            ${binCells}
+        `;
+        renewalPeriodTableBody.appendChild(tr);
+    });
+}
+
+// 14. Render First Period Direct Buyer Registration Distribution Table
+const firstPeriodRegDistTableBody = document.getElementById('firstPeriodRegDistTableBody');
+if (firstPeriodRegDistTableBody && typeof firstPeriodRegDist !== 'undefined') {
+    const months2025 = [
+        "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06",
+        "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12"
+    ];
+
+    firstPeriodRegDist.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+
+        let regDistCells = '';
+
+        // Earlier column
+        const earlierCount = row.regDist['Earlier'] || 0;
+        regDistCells += `
+            <td style="padding: 1rem; text-align: center; border-right: 1px dotted rgba(255,255,255,0.1); color: #94a3b8;">
+                ${earlierCount.toLocaleString()}
+            </td>
+        `;
+
+        months2025.forEach((m, idx) => {
+            const count = row.regDist[m] || 0;
+            const isSameMonth = (m === row.month);
+            const style = isSameMonth
+                ? 'background: rgba(34, 211, 238, 0.1); color: #22d3ee; font-weight: bold;'
+                : 'color: #ffffff;';
+            const borderStyle = (idx === months2025.length - 1) ? '' : 'border-right: 1px dotted rgba(255,255,255,0.1);';
+
+            regDistCells += `
+                <td style="padding: 1rem; text-align: center; ${borderStyle} ${style}">
+                    ${count > 0 ? count.toLocaleString() : '-'}
+                </td>
+            `;
+        });
+
+        tr.innerHTML = `
+            <td style="padding: 1rem; border-right: 1px solid rgba(255,255,255,0.1);">${row.month}</td>
+            <td style="padding: 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); font-weight: bold; color: #fbbf24;">
+                ${row.userCount.toLocaleString()}
+            </td>
+            ${regDistCells}
+        `;
+        firstPeriodRegDistTableBody.appendChild(tr);
+    });
+}
+
+// 15. Render KPI Container
+const kpiContainer = document.getElementById('kpiContainer');
+if (kpiContainer && typeof kpiData !== 'undefined') {
+    kpiData.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'stat-card';
+        
+        const popClass = item.pop >= 0 ? 'text-green-400' : 'text-red-400';
+        const popSign = item.pop >= 0 ? '↑' : '↓';
+        const popColor = item.pop >= 0 ? '#4ade80' : '#f87171';
+        
+        card.innerHTML = `
+            <span class="stat-label">${item.label}</span>
+            <span class="stat-value">${item.value}</span>
+            <span class="stat-pop" style="font-size: 0.75rem; margin-top: 4px; color: ${popColor}">
+                ${popSign} ${Math.abs(item.pop)}% <span style="color: #94a3b8; font-size: 0.7em;">vs prev 7d</span>
+            </span>
+        `;
+        kpiContainer.appendChild(card);
     });
 }

@@ -41,11 +41,12 @@ def get_registration_device_analysis(cursor):
             })
             continue
             
-        # 2. Check Device Binding & Trials
+        # 2. Check Device Binding, Trials & Paid Status
         bound_device_count = 0
         owner_device_count = 0
         owner_trial_count = 0
         owner_trial_30d_count = 0
+        paid_user_count = 0
         
         chunk_size = 2000
         for i in range(0, total_reg, chunk_size):
@@ -67,11 +68,15 @@ def get_registration_device_analysis(cursor):
             chunk_owners = len(owner_uids)
             owner_device_count += chunk_owners
             
+            # Count users who HAVE paid at least once
+            sql_paid = f"SELECT COUNT(DISTINCT uid) FROM `order` WHERE status=1 AND amount>0 AND product_name IN %s AND uid IN ({fmt})"
+            cursor.execute(sql_paid, (VALID_PRODUCTS, *chunk))
+            paid_user_count += cursor.fetchone()[0]
+
             # Identify Trials among Owners
             if chunk_owners > 0:
                 fmt_owners = ','.join(['%s'] * chunk_owners)
                 # Check for trials (amount=0, status=1, valid product)
-                # We need pay_time to check 30-day window
                 sql_trials = f"""
                     SELECT uid, MIN(pay_time) FROM `order` 
                     WHERE amount=0 AND status=1 
@@ -80,19 +85,22 @@ def get_registration_device_analysis(cursor):
                     GROUP BY uid
                 """
                 cursor.execute(sql_trials, (VALID_PRODUCTS, *owner_uids))
-                trial_results = cursor.fetchall() # List of (uid, pay_time)
+                trial_results = cursor.fetchall()
                 
                 owner_trial_count += len(trial_results)
                 
                 for t_uid, t_pay_time in trial_results:
-                    # Check 30 day window
                     reg_ts = user_reg_time.get(t_uid)
                     if reg_ts and (t_pay_time - reg_ts) <= (30 * 86400):
                         owner_trial_30d_count += 1
 
+        never_paid_count = total_reg - paid_user_count
+
         reg_analysis.append({
             'month': month_str,
             'totalReg': total_reg,
+            'neverPaid': never_paid_count,
+            'neverPaidPct': round(never_paid_count / total_reg * 100, 2) if total_reg > 0 else 0,
             'boundDevice': bound_device_count,
             'boundDevicePct': round(bound_device_count / total_reg * 100, 2) if total_reg > 0 else 0,
             'ownerDevice': owner_device_count,

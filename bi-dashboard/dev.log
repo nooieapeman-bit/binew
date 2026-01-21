@@ -1,0 +1,10 @@
+
+> bi-dashboard@1.0.0 dev
+> vite --host --port 5175
+
+
+  VITE v5.4.21  ready in 79 ms
+
+  ➜  Local:   http://localhost:5175/
+  ➜  Network: http://10.1.10.14:5175/
+  ➜  press h + enter to show help

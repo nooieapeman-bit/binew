@@ -26,6 +26,7 @@ def get_direct_buyer_history(cursor):
             SELECT subscribe_id, MIN(pay_time), uid
             FROM `order`
             WHERE amount > 0 AND status = 1
+              AND subscribe_id != ''
               AND product_name IN %s
             GROUP BY subscribe_id
             HAVING MIN(pay_time) >= %s AND MIN(pay_time) <= %s
@@ -52,11 +53,6 @@ def get_direct_buyer_history(cursor):
                 fmt = ','.join(['%s'] * len(chunk_subs))
                 
                 # Find subs with PRIOR TRIAL
-                # Logic: has order with same subscribe_id, amount=0, status=1, pay_time < current_first_pay ??
-                # Actually, simply: count valid trial orders for these subscribe_ids. 
-                # If a sub has ANY trial order, it's a "Trial Conversion", not "Direct First Period".
-                # (Assuming Trial always precedes Payment or happens same chain).
-                
                 sql_check_trial = f"""
                     SELECT DISTINCT subscribe_id
                     FROM `order`
@@ -70,13 +66,12 @@ def get_direct_buyer_history(cursor):
                 for s_id in chunk_subs:
                     if s_id not in trial_subs:
                         u, pt = sub_uid_map[s_id]
-                        final_direct_uids.append(u)
-                        # Identify strict "purchase time" for this user
-                        # (If user bought multiple subs same month, pick one? We just need ANY ref time)
-                        uid_paytime_map[u] = pt
+                        # Store tuple (uid, pay_time) for every valid subscription
+                        # Do NOT deduplicate by UID here, as we want Subscription counts
+                        final_direct_uids.append((u, pt))
+                        uid_paytime_map[u] = pt # Still need strict map for active check (approx ok)
 
-        # Distinct UIDs (in case user started 2 direct subs in same month)
-        final_direct_uids = list(set(final_direct_uids))
+        # final_direct_uids is now list of (uid, pay_time)
         
         total_buyers = len(final_direct_uids)
         existing_user_count = 0
@@ -85,16 +80,15 @@ def get_direct_buyer_history(cursor):
         if total_buyers > 0:
             chunk_size = 2000
             for i in range(0, total_buyers, chunk_size):
-                chunk_uids = final_direct_uids[i:i+chunk_size]
-                if not chunk_uids: continue
+                chunk_items = final_direct_uids[i:i+chunk_size]
+                if not chunk_items: continue
                 
-                fmt = ','.join(['%s'] * len(chunk_uids))
+                # Extract clean UIDs for SQL query
+                chunk_uids_for_sql = list({x[0] for x in chunk_items})
                 
-                # 2. Check for PRIOR valid paid orders (Identify Existing Users)
-                # STRICTLY BEFORE start_ts of the month? Or before the specific order time?
-                # "Prior Purchase" usually means before this month's cohort event. 
-                # Let's clean it by checking < start_ts (Before this Month).
+                fmt = ','.join(['%s'] * len(chunk_uids_for_sql))
                 
+                # 2. Check for PRIOR valid paid orders (Identify Existing Users in Batch)
                 sql_history = f"""
                     SELECT DISTINCT uid
                     FROM `order`
@@ -103,16 +97,14 @@ def get_direct_buyer_history(cursor):
                       AND amount > 0 AND status = 1
                       AND product_name IN %s
                 """
-                args = list(chunk_uids) + [start_ts, VALID_PRODUCTS]
+                args = list(chunk_uids_for_sql) + [start_ts, VALID_PRODUCTS]
                 cursor.execute(sql_history, args)
-                existing_batch = {r[0] for r in cursor.fetchall()}
+                existing_batch_set = {r[0] for r in cursor.fetchall()}
                 
-                existing_user_count += len(existing_batch)
-                
-                # 3. For Existing Users, check active subscription in cloud_info
-                # Logic: start_time < (pay_time - 600) < end_time AND is_delete = 0
-                if existing_batch:
-                    existing_uids_list = list(existing_batch)
+                # 3. For Existing Users, check active subscription
+                active_batch_set = set()
+                if existing_batch_set:
+                    existing_uids_list = list(existing_batch_set)
                     fmt_exist = ','.join(['%s'] * len(existing_uids_list))
                     
                     sql_cloud = f"""
@@ -131,18 +123,21 @@ def get_direct_buyer_history(cursor):
                             user_cloud_map[c_uid] = []
                         user_cloud_map[c_uid].append((c_start, c_end))
                     
-                    active_uids = set()
                     for eu in existing_uids_list:
                         ref_time = uid_paytime_map[eu]
-                        check_time = ref_time - 600 # 10 minutes before
-                        
+                        check_time = ref_time - 600
                         if eu in user_cloud_map:
                             for c_start, c_end in user_cloud_map[eu]:
                                 if c_start < check_time < c_end:
-                                    active_uids.add(eu)
+                                    active_batch_set.add(eu)
                                     break
-                    
-                    active_sub_user_count += len(active_uids)
+                
+                # Now calculate counts based on the Subscriptions (chunk_items)
+                for u, pt in chunk_items:
+                    if u in existing_batch_set:
+                        existing_user_count += 1
+                        if u in active_batch_set:
+                            active_sub_user_count += 1
 
         history_data.append({
             'month': month_str,

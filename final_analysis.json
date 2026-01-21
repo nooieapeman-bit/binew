@@ -1,0 +1,2322 @@
+/Users/petercheng/Library/Python/3.9/lib/python/site-packages/paramiko/pkey.py:82: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  "cipher": algorithms.TripleDES,
+/Users/petercheng/Library/Python/3.9/lib/python/site-packages/paramiko/transport.py:253: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  "class": algorithms.TripleDES,
+Connecting to Remote DB via SSH Tunnel...
+Calculating Revenue & Valid Orders...
+Calculating First Period Orders...
+Calculating Monthly Trial Orders...
+Calculating Cohort Analysis (Unaggregated)...
+Calculating Registration Lag...
+Calculating Registration & Device Binding...
+Calculating Monthly New Devices...
+Calculating Business Performance Matrix (Direct)...
+Analyzing Direct Buyer History (First Period & Direct Only)...
+Calculating Monthly Active Subscriptions (Valid Period)...
+Analyzing Detailed Active Subscriptions (Month-End)...
+Analyzing PAID Active Subscription Retention & Renewal with Plan and New User Breakdown...
+Analyzing Monthly Renewal Period Distribution...
+Caching initial_payment_times for 2025...
+Analyzing First Period Paid Users Registration Distribution...
+
+--- FINAL JSON OUTPUT ---
+{
+    "revenueData": [
+        597354.56,
+        568862.46,
+        642631.3,
+        611978.44,
+        634867.87,
+        627893.54,
+        689907.21,
+        852698.55,
+        906161.08,
+        869195.49,
+        855107.85,
+        927525.65
+    ],
+    "validOrdersData": [
+        16406,
+        15374,
+        16663,
+        15873,
+        16023,
+        15600,
+        16636,
+        17388,
+        16961,
+        16809,
+        16146,
+        16750
+    ],
+    "firstPeriodData": [
+        2878,
+        2652,
+        2832,
+        2245,
+        2245,
+        2405,
+        3025,
+        3201,
+        2858,
+        2698,
+        2669,
+        3275
+    ],
+    "trialData": [
+        1477,
+        1787,
+        1325,
+        1043,
+        1119,
+        1253,
+        1764,
+        1944,
+        1872,
+        1786,
+        1903,
+        2504
+    ],
+    "cohortData": [
+        {
+            "month": "2025-01",
+            "period": "2024-12-18 ~ 2025-01-17",
+            "convertedTotal": 993,
+            "convertedMonthly": 882,
+            "convertedMonthlyPct": 88.82,
+            "convertedYearly": 111,
+            "convertedYearlyPct": 11.18,
+            "trialTotal": 1529,
+            "trialMonthly": 1402,
+            "trialMonthlyPct": 91.69,
+            "trialYearly": 127,
+            "trialYearlyPct": 8.31,
+            "rate": 64.94,
+            "monthlyRate": 62.91,
+            "yearlyRate": 87.4
+        },
+        {
+            "month": "2025-02",
+            "period": "2025-01-18 ~ 2025-02-14",
+            "convertedTotal": 805,
+            "convertedMonthly": 725,
+            "convertedMonthlyPct": 90.06,
+            "convertedYearly": 80,
+            "convertedYearlyPct": 9.94,
+            "trialTotal": 1343,
+            "trialMonthly": 1239,
+            "trialMonthlyPct": 92.26,
+            "trialYearly": 104,
+            "trialYearlyPct": 7.74,
+            "rate": 59.94,
+            "monthlyRate": 58.51,
+            "yearlyRate": 76.92
+        },
+        {
+            "month": "2025-03",
+            "period": "2025-02-15 ~ 2025-03-17",
+            "convertedTotal": 968,
+            "convertedMonthly": 859,
+            "convertedMonthlyPct": 88.74,
+            "convertedYearly": 109,
+            "convertedYearlyPct": 11.26,
+            "trialTotal": 1902,
+            "trialMonthly": 1735,
+            "trialMonthlyPct": 91.22,
+            "trialYearly": 167,
+            "trialYearlyPct": 8.78,
+            "rate": 50.89,
+            "monthlyRate": 49.51,
+            "yearlyRate": 65.27
+        },
+        {
+            "month": "2025-04",
+            "period": "2025-03-18 ~ 2025-04-16",
+            "convertedTotal": 600,
+            "convertedMonthly": 541,
+            "convertedMonthlyPct": 90.17,
+            "convertedYearly": 59,
+            "convertedYearlyPct": 9.83,
+            "trialTotal": 1108,
+            "trialMonthly": 1020,
+            "trialMonthlyPct": 92.06,
+            "trialYearly": 88,
+            "trialYearlyPct": 7.94,
+            "rate": 54.15,
+            "monthlyRate": 53.04,
+            "yearlyRate": 67.05
+        },
+        {
+            "month": "2025-05",
+            "period": "2025-04-17 ~ 2025-05-17",
+            "convertedTotal": 637,
+            "convertedMonthly": 577,
+            "convertedMonthlyPct": 90.58,
+            "convertedYearly": 60,
+            "convertedYearlyPct": 9.42,
+            "trialTotal": 1058,
+            "trialMonthly": 982,
+            "trialMonthlyPct": 92.82,
+            "trialYearly": 76,
+            "trialYearlyPct": 7.18,
+            "rate": 60.21,
+            "monthlyRate": 58.76,
+            "yearlyRate": 78.95
+        },
+        {
+            "month": "2025-06",
+            "period": "2025-05-18 ~ 2025-06-16",
+            "convertedTotal": 670,
+            "convertedMonthly": 602,
+            "convertedMonthlyPct": 89.85,
+            "convertedYearly": 68,
+            "convertedYearlyPct": 10.15,
+            "trialTotal": 1168,
+            "trialMonthly": 1069,
+            "trialMonthlyPct": 91.52,
+            "trialYearly": 99,
+            "trialYearlyPct": 8.48,
+            "rate": 57.36,
+            "monthlyRate": 56.31,
+            "yearlyRate": 68.69
+        },
+        {
+            "month": "2025-07",
+            "period": "2025-06-17 ~ 2025-07-17",
+            "convertedTotal": 944,
+            "convertedMonthly": 875,
+            "convertedMonthlyPct": 92.69,
+            "convertedYearly": 69,
+            "convertedYearlyPct": 7.31,
+            "trialTotal": 1497,
+            "trialMonthly": 1392,
+            "trialMonthlyPct": 92.99,
+            "trialYearly": 105,
+            "trialYearlyPct": 7.01,
+            "rate": 63.06,
+            "monthlyRate": 62.86,
+            "yearlyRate": 65.71
+        },
+        {
+            "month": "2025-08",
+            "period": "2025-07-18 ~ 2025-08-17",
+            "convertedTotal": 1106,
+            "convertedMonthly": 727,
+            "convertedMonthlyPct": 65.73,
+            "convertedYearly": 379,
+            "convertedYearlyPct": 34.27,
+            "trialTotal": 1976,
+            "trialMonthly": 1282,
+            "trialMonthlyPct": 64.88,
+            "trialYearly": 694,
+            "trialYearlyPct": 35.12,
+            "rate": 55.97,
+            "monthlyRate": 56.71,
+            "yearlyRate": 54.61
+        },
+        {
+            "month": "2025-09",
+            "period": "2025-08-18 ~ 2025-09-16",
+            "convertedTotal": 948,
+            "convertedMonthly": 508,
+            "convertedMonthlyPct": 53.59,
+            "convertedYearly": 440,
+            "convertedYearlyPct": 46.41,
+            "trialTotal": 1874,
+            "trialMonthly": 926,
+            "trialMonthlyPct": 49.41,
+            "trialYearly": 948,
+            "trialYearlyPct": 50.59,
+            "rate": 50.59,
+            "monthlyRate": 54.86,
+            "yearlyRate": 46.41
+        },
+        {
+            "month": "2025-10",
+            "period": "2025-09-17 ~ 2025-10-17",
+            "convertedTotal": 823,
+            "convertedMonthly": 485,
+            "convertedMonthlyPct": 58.93,
+            "convertedYearly": 338,
+            "convertedYearlyPct": 41.07,
+            "trialTotal": 1846,
+            "trialMonthly": 926,
+            "trialMonthlyPct": 50.16,
+            "trialYearly": 920,
+            "trialYearlyPct": 49.84,
+            "rate": 44.58,
+            "monthlyRate": 52.38,
+            "yearlyRate": 36.74
+        },
+        {
+            "month": "2025-11",
+            "period": "2025-10-18 ~ 2025-11-16",
+            "convertedTotal": 775,
+            "convertedMonthly": 415,
+            "convertedMonthlyPct": 53.55,
+            "convertedYearly": 360,
+            "convertedYearlyPct": 46.45,
+            "trialTotal": 1831,
+            "trialMonthly": 877,
+            "trialMonthlyPct": 47.9,
+            "trialYearly": 954,
+            "trialYearlyPct": 52.1,
+            "rate": 42.33,
+            "monthlyRate": 47.32,
+            "yearlyRate": 37.74
+        },
+        {
+            "month": "2025-12",
+            "period": "2025-11-17 ~ 2025-12-17",
+            "convertedTotal": 963,
+            "convertedMonthly": 555,
+            "convertedMonthlyPct": 57.63,
+            "convertedYearly": 408,
+            "convertedYearlyPct": 42.37,
+            "trialTotal": 2199,
+            "trialMonthly": 1113,
+            "trialMonthlyPct": 50.61,
+            "trialYearly": 1086,
+            "trialYearlyPct": 49.39,
+            "rate": 43.79,
+            "monthlyRate": 49.87,
+            "yearlyRate": 37.57
+        }
+    ],
+    "lagData": [
+        {
+            "month": "2025-01",
+            "period": "2024-12-18 ~ 2025-01-17",
+            "totalTrials": 1513,
+            "bins": {
+                "Same Day": {
+                    "count": 437,
+                    "pct": 28.88
+                },
+                "1-3 Days": {
+                    "count": 167,
+                    "pct": 11.04
+                },
+                "4-7 Days": {
+                    "count": 70,
+                    "pct": 4.63
+                },
+                "8-14 Days": {
+                    "count": 74,
+                    "pct": 4.89
+                },
+                "15-30 Days": {
+                    "count": 89,
+                    "pct": 5.88
+                },
+                "30-60 Days": {
+                    "count": 79,
+                    "pct": 5.22
+                },
+                "60-90 Days": {
+                    "count": 62,
+                    "pct": 4.1
+                },
+                "> 90 Days": {
+                    "count": 535,
+                    "pct": 35.36
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-02",
+            "period": "2025-01-18 ~ 2025-02-14",
+            "totalTrials": 1334,
+            "bins": {
+                "Same Day": {
+                    "count": 386,
+                    "pct": 28.94
+                },
+                "1-3 Days": {
+                    "count": 163,
+                    "pct": 12.22
+                },
+                "4-7 Days": {
+                    "count": 75,
+                    "pct": 5.62
+                },
+                "8-14 Days": {
+                    "count": 54,
+                    "pct": 4.05
+                },
+                "15-30 Days": {
+                    "count": 79,
+                    "pct": 5.92
+                },
+                "30-60 Days": {
+                    "count": 75,
+                    "pct": 5.62
+                },
+                "60-90 Days": {
+                    "count": 41,
+                    "pct": 3.07
+                },
+                "> 90 Days": {
+                    "count": 461,
+                    "pct": 34.56
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-03",
+            "period": "2025-02-15 ~ 2025-03-17",
+            "totalTrials": 1824,
+            "bins": {
+                "Same Day": {
+                    "count": 472,
+                    "pct": 25.88
+                },
+                "1-3 Days": {
+                    "count": 187,
+                    "pct": 10.25
+                },
+                "4-7 Days": {
+                    "count": 84,
+                    "pct": 4.61
+                },
+                "8-14 Days": {
+                    "count": 105,
+                    "pct": 5.76
+                },
+                "15-30 Days": {
+                    "count": 101,
+                    "pct": 5.54
+                },
+                "30-60 Days": {
+                    "count": 102,
+                    "pct": 5.59
+                },
+                "60-90 Days": {
+                    "count": 70,
+                    "pct": 3.84
+                },
+                "> 90 Days": {
+                    "count": 703,
+                    "pct": 38.54
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-04",
+            "period": "2025-03-18 ~ 2025-04-16",
+            "totalTrials": 1066,
+            "bins": {
+                "Same Day": {
+                    "count": 271,
+                    "pct": 25.42
+                },
+                "1-3 Days": {
+                    "count": 134,
+                    "pct": 12.57
+                },
+                "4-7 Days": {
+                    "count": 48,
+                    "pct": 4.5
+                },
+                "8-14 Days": {
+                    "count": 42,
+                    "pct": 3.94
+                },
+                "15-30 Days": {
+                    "count": 72,
+                    "pct": 6.75
+                },
+                "30-60 Days": {
+                    "count": 59,
+                    "pct": 5.53
+                },
+                "60-90 Days": {
+                    "count": 37,
+                    "pct": 3.47
+                },
+                "> 90 Days": {
+                    "count": 403,
+                    "pct": 37.8
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-05",
+            "period": "2025-04-17 ~ 2025-05-17",
+            "totalTrials": 1019,
+            "bins": {
+                "Same Day": {
+                    "count": 267,
+                    "pct": 26.2
+                },
+                "1-3 Days": {
+                    "count": 103,
+                    "pct": 10.11
+                },
+                "4-7 Days": {
+                    "count": 41,
+                    "pct": 4.02
+                },
+                "8-14 Days": {
+                    "count": 45,
+                    "pct": 4.42
+                },
+                "15-30 Days": {
+                    "count": 50,
+                    "pct": 4.91
+                },
+                "30-60 Days": {
+                    "count": 58,
+                    "pct": 5.69
+                },
+                "60-90 Days": {
+                    "count": 34,
+                    "pct": 3.34
+                },
+                "> 90 Days": {
+                    "count": 421,
+                    "pct": 41.32
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-06",
+            "period": "2025-05-18 ~ 2025-06-16",
+            "totalTrials": 1160,
+            "bins": {
+                "Same Day": {
+                    "count": 342,
+                    "pct": 29.48
+                },
+                "1-3 Days": {
+                    "count": 120,
+                    "pct": 10.34
+                },
+                "4-7 Days": {
+                    "count": 50,
+                    "pct": 4.31
+                },
+                "8-14 Days": {
+                    "count": 43,
+                    "pct": 3.71
+                },
+                "15-30 Days": {
+                    "count": 47,
+                    "pct": 4.05
+                },
+                "30-60 Days": {
+                    "count": 58,
+                    "pct": 5.0
+                },
+                "60-90 Days": {
+                    "count": 47,
+                    "pct": 4.05
+                },
+                "> 90 Days": {
+                    "count": 453,
+                    "pct": 39.05
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-07",
+            "period": "2025-06-17 ~ 2025-07-17",
+            "totalTrials": 1446,
+            "bins": {
+                "Same Day": {
+                    "count": 464,
+                    "pct": 32.09
+                },
+                "1-3 Days": {
+                    "count": 172,
+                    "pct": 11.89
+                },
+                "4-7 Days": {
+                    "count": 77,
+                    "pct": 5.33
+                },
+                "8-14 Days": {
+                    "count": 57,
+                    "pct": 3.94
+                },
+                "15-30 Days": {
+                    "count": 60,
+                    "pct": 4.15
+                },
+                "30-60 Days": {
+                    "count": 56,
+                    "pct": 3.87
+                },
+                "60-90 Days": {
+                    "count": 33,
+                    "pct": 2.28
+                },
+                "> 90 Days": {
+                    "count": 527,
+                    "pct": 36.45
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-08",
+            "period": "2025-07-18 ~ 2025-08-17",
+            "totalTrials": 1947,
+            "bins": {
+                "Same Day": {
+                    "count": 649,
+                    "pct": 33.33
+                },
+                "1-3 Days": {
+                    "count": 218,
+                    "pct": 11.2
+                },
+                "4-7 Days": {
+                    "count": 84,
+                    "pct": 4.31
+                },
+                "8-14 Days": {
+                    "count": 81,
+                    "pct": 4.16
+                },
+                "15-30 Days": {
+                    "count": 108,
+                    "pct": 5.55
+                },
+                "30-60 Days": {
+                    "count": 84,
+                    "pct": 4.31
+                },
+                "60-90 Days": {
+                    "count": 40,
+                    "pct": 2.05
+                },
+                "> 90 Days": {
+                    "count": 683,
+                    "pct": 35.08
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-09",
+            "period": "2025-08-18 ~ 2025-09-16",
+            "totalTrials": 1849,
+            "bins": {
+                "Same Day": {
+                    "count": 648,
+                    "pct": 35.05
+                },
+                "1-3 Days": {
+                    "count": 225,
+                    "pct": 12.17
+                },
+                "4-7 Days": {
+                    "count": 94,
+                    "pct": 5.08
+                },
+                "8-14 Days": {
+                    "count": 67,
+                    "pct": 3.62
+                },
+                "15-30 Days": {
+                    "count": 96,
+                    "pct": 5.19
+                },
+                "30-60 Days": {
+                    "count": 91,
+                    "pct": 4.92
+                },
+                "60-90 Days": {
+                    "count": 52,
+                    "pct": 2.81
+                },
+                "> 90 Days": {
+                    "count": 576,
+                    "pct": 31.15
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-10",
+            "period": "2025-09-17 ~ 2025-10-17",
+            "totalTrials": 1829,
+            "bins": {
+                "Same Day": {
+                    "count": 683,
+                    "pct": 37.34
+                },
+                "1-3 Days": {
+                    "count": 260,
+                    "pct": 14.22
+                },
+                "4-7 Days": {
+                    "count": 100,
+                    "pct": 5.47
+                },
+                "8-14 Days": {
+                    "count": 85,
+                    "pct": 4.65
+                },
+                "15-30 Days": {
+                    "count": 94,
+                    "pct": 5.14
+                },
+                "30-60 Days": {
+                    "count": 64,
+                    "pct": 3.5
+                },
+                "60-90 Days": {
+                    "count": 41,
+                    "pct": 2.24
+                },
+                "> 90 Days": {
+                    "count": 502,
+                    "pct": 27.45
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-11",
+            "period": "2025-10-18 ~ 2025-11-16",
+            "totalTrials": 1782,
+            "bins": {
+                "Same Day": {
+                    "count": 691,
+                    "pct": 38.78
+                },
+                "1-3 Days": {
+                    "count": 218,
+                    "pct": 12.23
+                },
+                "4-7 Days": {
+                    "count": 84,
+                    "pct": 4.71
+                },
+                "8-14 Days": {
+                    "count": 90,
+                    "pct": 5.05
+                },
+                "15-30 Days": {
+                    "count": 113,
+                    "pct": 6.34
+                },
+                "30-60 Days": {
+                    "count": 83,
+                    "pct": 4.66
+                },
+                "60-90 Days": {
+                    "count": 45,
+                    "pct": 2.53
+                },
+                "> 90 Days": {
+                    "count": 458,
+                    "pct": 25.7
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        },
+        {
+            "month": "2025-12",
+            "period": "2025-11-17 ~ 2025-12-17",
+            "totalTrials": 2163,
+            "bins": {
+                "Same Day": {
+                    "count": 964,
+                    "pct": 44.57
+                },
+                "1-3 Days": {
+                    "count": 327,
+                    "pct": 15.12
+                },
+                "4-7 Days": {
+                    "count": 120,
+                    "pct": 5.55
+                },
+                "8-14 Days": {
+                    "count": 85,
+                    "pct": 3.93
+                },
+                "15-30 Days": {
+                    "count": 106,
+                    "pct": 4.9
+                },
+                "30-60 Days": {
+                    "count": 87,
+                    "pct": 4.02
+                },
+                "60-90 Days": {
+                    "count": 57,
+                    "pct": 2.64
+                },
+                "> 90 Days": {
+                    "count": 417,
+                    "pct": 19.28
+                },
+                "Unmatched": {
+                    "count": 0,
+                    "pct": 0.0
+                }
+            }
+        }
+    ],
+    "regDeviceData": [
+        {
+            "month": "2025-01",
+            "totalReg": 11451,
+            "neverPaid": 10557,
+            "neverPaidPct": 92.19,
+            "boundDevice": 8872,
+            "boundDevicePct": 77.48,
+            "ownerDevice": 7781,
+            "ownerDevicePct": 67.95,
+            "ownerTrials": 1147,
+            "ownerTrialsPct": 14.74,
+            "ownerTrials30d": 863,
+            "ownerTrials30dPct": 11.09
+        },
+        {
+            "month": "2025-02",
+            "totalReg": 10478,
+            "neverPaid": 9665,
+            "neverPaidPct": 92.24,
+            "boundDevice": 8192,
+            "boundDevicePct": 78.18,
+            "ownerDevice": 7181,
+            "ownerDevicePct": 68.53,
+            "ownerTrials": 1088,
+            "ownerTrialsPct": 15.15,
+            "ownerTrials30d": 860,
+            "ownerTrials30dPct": 11.98
+        },
+        {
+            "month": "2025-03",
+            "totalReg": 10430,
+            "neverPaid": 9747,
+            "neverPaidPct": 93.45,
+            "boundDevice": 8227,
+            "boundDevicePct": 78.88,
+            "ownerDevice": 7194,
+            "ownerDevicePct": 68.97,
+            "ownerTrials": 956,
+            "ownerTrialsPct": 13.29,
+            "ownerTrials30d": 679,
+            "ownerTrials30dPct": 9.44
+        },
+        {
+            "month": "2025-04",
+            "totalReg": 9014,
+            "neverPaid": 8521,
+            "neverPaidPct": 94.53,
+            "boundDevice": 7048,
+            "boundDevicePct": 78.19,
+            "ownerDevice": 5855,
+            "ownerDevicePct": 64.95,
+            "ownerTrials": 662,
+            "ownerTrialsPct": 11.31,
+            "ownerTrials30d": 484,
+            "ownerTrials30dPct": 8.27
+        },
+        {
+            "month": "2025-05",
+            "totalReg": 9223,
+            "neverPaid": 8690,
+            "neverPaidPct": 94.22,
+            "boundDevice": 7396,
+            "boundDevicePct": 80.19,
+            "ownerDevice": 6074,
+            "ownerDevicePct": 65.86,
+            "ownerTrials": 726,
+            "ownerTrialsPct": 11.95,
+            "ownerTrials30d": 542,
+            "ownerTrials30dPct": 8.92
+        },
+        {
+            "month": "2025-06",
+            "totalReg": 9833,
+            "neverPaid": 9159,
+            "neverPaidPct": 93.15,
+            "boundDevice": 7977,
+            "boundDevicePct": 81.12,
+            "ownerDevice": 6537,
+            "ownerDevicePct": 66.48,
+            "ownerTrials": 892,
+            "ownerTrialsPct": 13.65,
+            "ownerTrials30d": 687,
+            "ownerTrials30dPct": 10.51
+        },
+        {
+            "month": "2025-07",
+            "totalReg": 12602,
+            "neverPaid": 11645,
+            "neverPaidPct": 92.41,
+            "boundDevice": 10652,
+            "boundDevicePct": 84.53,
+            "ownerDevice": 8710,
+            "ownerDevicePct": 69.12,
+            "ownerTrials": 1241,
+            "ownerTrialsPct": 14.25,
+            "ownerTrials30d": 1046,
+            "ownerTrials30dPct": 12.01
+        },
+        {
+            "month": "2025-08",
+            "totalReg": 12409,
+            "neverPaid": 11617,
+            "neverPaidPct": 93.62,
+            "boundDevice": 10411,
+            "boundDevicePct": 83.9,
+            "ownerDevice": 8654,
+            "ownerDevicePct": 69.74,
+            "ownerTrials": 1188,
+            "ownerTrialsPct": 13.73,
+            "ownerTrials30d": 1045,
+            "ownerTrials30dPct": 12.08
+        },
+        {
+            "month": "2025-09",
+            "totalReg": 13984,
+            "neverPaid": 13075,
+            "neverPaidPct": 93.5,
+            "boundDevice": 12077,
+            "boundDevicePct": 86.36,
+            "ownerDevice": 10117,
+            "ownerDevicePct": 72.35,
+            "ownerTrials": 1363,
+            "ownerTrialsPct": 13.47,
+            "ownerTrials30d": 1205,
+            "ownerTrials30dPct": 11.91
+        },
+        {
+            "month": "2025-10",
+            "totalReg": 15992,
+            "neverPaid": 15221,
+            "neverPaidPct": 95.18,
+            "boundDevice": 13791,
+            "boundDevicePct": 86.24,
+            "ownerDevice": 11548,
+            "ownerDevicePct": 72.21,
+            "ownerTrials": 1285,
+            "ownerTrialsPct": 11.13,
+            "ownerTrials30d": 1150,
+            "ownerTrials30dPct": 9.96
+        },
+        {
+            "month": "2025-11",
+            "totalReg": 17330,
+            "neverPaid": 16518,
+            "neverPaidPct": 95.31,
+            "boundDevice": 14678,
+            "boundDevicePct": 84.7,
+            "ownerDevice": 12105,
+            "ownerDevicePct": 69.85,
+            "ownerTrials": 1335,
+            "ownerTrialsPct": 11.03,
+            "ownerTrials30d": 1261,
+            "ownerTrials30dPct": 10.42
+        },
+        {
+            "month": "2025-12",
+            "totalReg": 24997,
+            "neverPaid": 24072,
+            "neverPaidPct": 96.3,
+            "boundDevice": 21780,
+            "boundDevicePct": 87.13,
+            "ownerDevice": 18153,
+            "ownerDevicePct": 72.62,
+            "ownerTrials": 1841,
+            "ownerTrialsPct": 10.14,
+            "ownerTrials30d": 1834,
+            "ownerTrials30dPct": 10.1
+        }
+    ],
+    "deviceData": [
+        {
+            "month": "2025-01",
+            "newDevices": 10624
+        },
+        {
+            "month": "2025-02",
+            "newDevices": 9553
+        },
+        {
+            "month": "2025-03",
+            "newDevices": 9689
+        },
+        {
+            "month": "2025-04",
+            "newDevices": 8030
+        },
+        {
+            "month": "2025-05",
+            "newDevices": 8287
+        },
+        {
+            "month": "2025-06",
+            "newDevices": 9038
+        },
+        {
+            "month": "2025-07",
+            "newDevices": 12435
+        },
+        {
+            "month": "2025-08",
+            "newDevices": 11932
+        },
+        {
+            "month": "2025-09",
+            "newDevices": 14962
+        },
+        {
+            "month": "2025-10",
+            "newDevices": 17391
+        },
+        {
+            "month": "2025-11",
+            "newDevices": 17589
+        },
+        {
+            "month": "2025-12",
+            "newDevices": 27075
+        }
+    ],
+    "businessMatrixData": [
+        {
+            "month": "2025-01",
+            "totalDirectBuyers": 13072,
+            "lag1m": 651,
+            "lag1mPct": 4.98,
+            "lag2to4m": 1971,
+            "lag2to4mPct": 15.08,
+            "lag5to7m": 2329,
+            "lag5to7mPct": 17.82,
+            "lag8to12m": 3207,
+            "lag8to12mPct": 24.53,
+            "lagGt12m": 4914,
+            "lagGt12mPct": 37.59
+        },
+        {
+            "month": "2025-02",
+            "totalDirectBuyers": 12557,
+            "lag1m": 590,
+            "lag1mPct": 4.7,
+            "lag2to4m": 1592,
+            "lag2to4mPct": 12.68,
+            "lag5to7m": 2026,
+            "lag5to7mPct": 16.13,
+            "lag8to12m": 3205,
+            "lag8to12mPct": 25.52,
+            "lagGt12m": 5144,
+            "lagGt12mPct": 40.97
+        },
+        {
+            "month": "2025-03",
+            "totalDirectBuyers": 13140,
+            "lag1m": 629,
+            "lag1mPct": 4.79,
+            "lag2to4m": 1471,
+            "lag2to4mPct": 11.19,
+            "lag5to7m": 1849,
+            "lag5to7mPct": 14.07,
+            "lag8to12m": 3384,
+            "lag8to12mPct": 25.75,
+            "lagGt12m": 5807,
+            "lagGt12mPct": 44.19
+        },
+        {
+            "month": "2025-04",
+            "totalDirectBuyers": 12688,
+            "lag1m": 375,
+            "lag1mPct": 2.96,
+            "lag2to4m": 1298,
+            "lag2to4mPct": 10.23,
+            "lag5to7m": 1606,
+            "lag5to7mPct": 12.66,
+            "lag8to12m": 3257,
+            "lag8to12mPct": 25.67,
+            "lagGt12m": 6152,
+            "lagGt12mPct": 48.49
+        },
+        {
+            "month": "2025-05",
+            "totalDirectBuyers": 12600,
+            "lag1m": 386,
+            "lag1mPct": 3.06,
+            "lag2to4m": 1098,
+            "lag2to4mPct": 8.71,
+            "lag5to7m": 1384,
+            "lag5to7mPct": 10.98,
+            "lag8to12m": 3090,
+            "lag8to12mPct": 24.52,
+            "lagGt12m": 6642,
+            "lagGt12mPct": 52.71
+        },
+        {
+            "month": "2025-06",
+            "totalDirectBuyers": 12521,
+            "lag1m": 442,
+            "lag1mPct": 3.53,
+            "lag2to4m": 965,
+            "lag2to4mPct": 7.71,
+            "lag5to7m": 1162,
+            "lag5to7mPct": 9.28,
+            "lag8to12m": 2925,
+            "lag8to12mPct": 23.36,
+            "lagGt12m": 7027,
+            "lagGt12mPct": 56.12
+        },
+        {
+            "month": "2025-07",
+            "totalDirectBuyers": 12994,
+            "lag1m": 667,
+            "lag1mPct": 5.13,
+            "lag2to4m": 898,
+            "lag2to4mPct": 6.91,
+            "lag5to7m": 1103,
+            "lag5to7mPct": 8.49,
+            "lag8to12m": 2639,
+            "lag8to12mPct": 20.31,
+            "lagGt12m": 7687,
+            "lagGt12mPct": 59.16
+        },
+        {
+            "month": "2025-08",
+            "totalDirectBuyers": 13649,
+            "lag1m": 763,
+            "lag1mPct": 5.59,
+            "lag2to4m": 1148,
+            "lag2to4mPct": 8.41,
+            "lag5to7m": 950,
+            "lag5to7mPct": 6.96,
+            "lag8to12m": 2352,
+            "lag8to12mPct": 17.23,
+            "lagGt12m": 8436,
+            "lagGt12mPct": 61.81
+        },
+        {
+            "month": "2025-09",
+            "totalDirectBuyers": 13567,
+            "lag1m": 746,
+            "lag1mPct": 5.5,
+            "lag2to4m": 1243,
+            "lag2to4mPct": 9.16,
+            "lag5to7m": 823,
+            "lag5to7mPct": 6.07,
+            "lag8to12m": 2064,
+            "lag8to12mPct": 15.21,
+            "lagGt12m": 8691,
+            "lagGt12mPct": 64.06
+        },
+        {
+            "month": "2025-10",
+            "totalDirectBuyers": 13177,
+            "lag1m": 733,
+            "lag1mPct": 5.56,
+            "lag2to4m": 1205,
+            "lag2to4mPct": 9.14,
+            "lag5to7m": 739,
+            "lag5to7mPct": 5.61,
+            "lag8to12m": 1751,
+            "lag8to12mPct": 13.29,
+            "lagGt12m": 8749,
+            "lagGt12mPct": 66.4
+        },
+        {
+            "month": "2025-11",
+            "totalDirectBuyers": 12816,
+            "lag1m": 714,
+            "lag1mPct": 5.57,
+            "lag2to4m": 1105,
+            "lag2to4mPct": 8.62,
+            "lag5to7m": 810,
+            "lag5to7mPct": 6.32,
+            "lag8to12m": 1447,
+            "lag8to12mPct": 11.29,
+            "lagGt12m": 8740,
+            "lagGt12mPct": 68.2
+        },
+        {
+            "month": "2025-12",
+            "totalDirectBuyers": 12971,
+            "lag1m": 970,
+            "lag1mPct": 7.48,
+            "lag2to4m": 1069,
+            "lag2to4mPct": 8.24,
+            "lag5to7m": 872,
+            "lag5to7mPct": 6.72,
+            "lag8to12m": 1259,
+            "lag8to12mPct": 9.71,
+            "lagGt12m": 8801,
+            "lagGt12mPct": 67.85
+        }
+    ],
+    "buyerHistoryData": [
+        {
+            "month": "2025-01",
+            "totalDirectBuyers": 1903,
+            "existingUsers": 1379,
+            "existingUsersPct": 72.46,
+            "activeSubUsers": 541,
+            "activeSubUsersPct": 39.23
+        },
+        {
+            "month": "2025-02",
+            "totalDirectBuyers": 1856,
+            "existingUsers": 1326,
+            "existingUsersPct": 71.44,
+            "activeSubUsers": 524,
+            "activeSubUsersPct": 39.52
+        },
+        {
+            "month": "2025-03",
+            "totalDirectBuyers": 1887,
+            "existingUsers": 1461,
+            "existingUsersPct": 77.42,
+            "activeSubUsers": 540,
+            "activeSubUsersPct": 36.96
+        },
+        {
+            "month": "2025-04",
+            "totalDirectBuyers": 1648,
+            "existingUsers": 1315,
+            "existingUsersPct": 79.79,
+            "activeSubUsers": 477,
+            "activeSubUsersPct": 36.27
+        },
+        {
+            "month": "2025-05",
+            "totalDirectBuyers": 1626,
+            "existingUsers": 1313,
+            "existingUsersPct": 80.75,
+            "activeSubUsers": 443,
+            "activeSubUsersPct": 33.74
+        },
+        {
+            "month": "2025-06",
+            "totalDirectBuyers": 1754,
+            "existingUsers": 1390,
+            "existingUsersPct": 79.25,
+            "activeSubUsers": 487,
+            "activeSubUsersPct": 35.04
+        },
+        {
+            "month": "2025-07",
+            "totalDirectBuyers": 2080,
+            "existingUsers": 1607,
+            "existingUsersPct": 77.26,
+            "activeSubUsers": 665,
+            "activeSubUsersPct": 41.38
+        },
+        {
+            "month": "2025-08",
+            "totalDirectBuyers": 2089,
+            "existingUsers": 1551,
+            "existingUsersPct": 74.25,
+            "activeSubUsers": 578,
+            "activeSubUsersPct": 37.27
+        },
+        {
+            "month": "2025-09",
+            "totalDirectBuyers": 1919,
+            "existingUsers": 1332,
+            "existingUsersPct": 69.41,
+            "activeSubUsers": 469,
+            "activeSubUsersPct": 35.21
+        },
+        {
+            "month": "2025-10",
+            "totalDirectBuyers": 1871,
+            "existingUsers": 1331,
+            "existingUsersPct": 71.14,
+            "activeSubUsers": 503,
+            "activeSubUsersPct": 37.79
+        },
+        {
+            "month": "2025-11",
+            "totalDirectBuyers": 1894,
+            "existingUsers": 1312,
+            "existingUsersPct": 69.27,
+            "activeSubUsers": 493,
+            "activeSubUsersPct": 37.58
+        },
+        {
+            "month": "2025-12",
+            "totalDirectBuyers": 2322,
+            "existingUsers": 1507,
+            "existingUsersPct": 64.9,
+            "activeSubUsers": 519,
+            "activeSubUsersPct": 34.44
+        }
+    ],
+    "activeSubscriptionData": [
+        {
+            "month": "2025-01",
+            "activeSubscriptions": 19757
+        },
+        {
+            "month": "2025-02",
+            "activeSubscriptions": 19762
+        },
+        {
+            "month": "2025-03",
+            "activeSubscriptions": 20173
+        },
+        {
+            "month": "2025-04",
+            "activeSubscriptions": 19858
+        },
+        {
+            "month": "2025-05",
+            "activeSubscriptions": 19777
+        },
+        {
+            "month": "2025-06",
+            "activeSubscriptions": 19903
+        },
+        {
+            "month": "2025-07",
+            "activeSubscriptions": 20688
+        },
+        {
+            "month": "2025-08",
+            "activeSubscriptions": 21405
+        },
+        {
+            "month": "2025-09",
+            "activeSubscriptions": 21701
+        },
+        {
+            "month": "2025-10",
+            "activeSubscriptions": 21659
+        },
+        {
+            "month": "2025-11",
+            "activeSubscriptions": 21781
+        },
+        {
+            "month": "2025-12",
+            "activeSubscriptions": 22851
+        }
+    ],
+    "detailedActiveData": [
+        {
+            "month": "2025-01",
+            "totalActiveSubs": 20057,
+            "paidActiveSubs": 19123,
+            "users1": 12505,
+            "users2": 2402,
+            "usersMany": 505,
+            "monthlyCount": 15803,
+            "monthlyPct": 82.64,
+            "yearlyCount": 3320,
+            "yearlyPct": 17.36
+        },
+        {
+            "month": "2025-02",
+            "totalActiveSubs": 20148,
+            "paidActiveSubs": 19037,
+            "users1": 12379,
+            "users2": 2412,
+            "usersMany": 515,
+            "monthlyCount": 15590,
+            "monthlyPct": 81.89,
+            "yearlyCount": 3447,
+            "yearlyPct": 18.11
+        },
+        {
+            "month": "2025-03",
+            "totalActiveSubs": 20490,
+            "paidActiveSubs": 19614,
+            "users1": 12672,
+            "users2": 2509,
+            "usersMany": 535,
+            "monthlyCount": 16033,
+            "monthlyPct": 81.74,
+            "yearlyCount": 3581,
+            "yearlyPct": 18.26
+        },
+        {
+            "month": "2025-04",
+            "totalActiveSubs": 20196,
+            "paidActiveSubs": 19421,
+            "users1": 12431,
+            "users2": 2498,
+            "usersMany": 557,
+            "monthlyCount": 15778,
+            "monthlyPct": 81.24,
+            "yearlyCount": 3643,
+            "yearlyPct": 18.76
+        },
+        {
+            "month": "2025-05",
+            "totalActiveSubs": 20109,
+            "paidActiveSubs": 19308,
+            "users1": 12325,
+            "users2": 2473,
+            "usersMany": 570,
+            "monthlyCount": 15606,
+            "monthlyPct": 80.83,
+            "yearlyCount": 3702,
+            "yearlyPct": 19.17
+        },
+        {
+            "month": "2025-06",
+            "totalActiveSubs": 20148,
+            "paidActiveSubs": 19296,
+            "users1": 12346,
+            "users2": 2466,
+            "usersMany": 562,
+            "monthlyCount": 15549,
+            "monthlyPct": 80.58,
+            "yearlyCount": 3747,
+            "yearlyPct": 19.42
+        },
+        {
+            "month": "2025-07",
+            "totalActiveSubs": 20828,
+            "paidActiveSubs": 19748,
+            "users1": 12639,
+            "users2": 2490,
+            "usersMany": 588,
+            "monthlyCount": 15923,
+            "monthlyPct": 80.63,
+            "yearlyCount": 3825,
+            "yearlyPct": 19.37
+        },
+        {
+            "month": "2025-08",
+            "totalActiveSubs": 21538,
+            "paidActiveSubs": 20536,
+            "users1": 13151,
+            "users2": 2601,
+            "usersMany": 607,
+            "monthlyCount": 16181,
+            "monthlyPct": 78.79,
+            "yearlyCount": 4355,
+            "yearlyPct": 21.21
+        },
+        {
+            "month": "2025-09",
+            "totalActiveSubs": 21849,
+            "paidActiveSubs": 20915,
+            "users1": 13432,
+            "users2": 2613,
+            "usersMany": 627,
+            "monthlyCount": 16014,
+            "monthlyPct": 76.57,
+            "yearlyCount": 4901,
+            "yearlyPct": 23.43
+        },
+        {
+            "month": "2025-10",
+            "totalActiveSubs": 21931,
+            "paidActiveSubs": 21013,
+            "users1": 13415,
+            "users2": 2643,
+            "usersMany": 640,
+            "monthlyCount": 15695,
+            "monthlyPct": 74.69,
+            "yearlyCount": 5318,
+            "yearlyPct": 25.31
+        },
+        {
+            "month": "2025-11",
+            "totalActiveSubs": 22159,
+            "paidActiveSubs": 21031,
+            "users1": 13308,
+            "users2": 2668,
+            "usersMany": 658,
+            "monthlyCount": 15328,
+            "monthlyPct": 72.88,
+            "yearlyCount": 5703,
+            "yearlyPct": 27.12
+        },
+        {
+            "month": "2025-12",
+            "totalActiveSubs": 23495,
+            "paidActiveSubs": 21772,
+            "users1": 13677,
+            "users2": 2768,
+            "usersMany": 705,
+            "monthlyCount": 15460,
+            "monthlyPct": 71.01,
+            "yearlyCount": 6312,
+            "yearlyPct": 28.99
+        }
+    ],
+    "retentionData": [
+        {
+            "month": "2025-01",
+            "totalActiveEnd": 19123,
+            "noNeedM": 55,
+            "noNeedY": 3027,
+            "expM": 15975,
+            "expY": 133,
+            "actM": 13772,
+            "actY": 90,
+            "rateM": 86.21,
+            "rateY": 67.67,
+            "rateTotal": 86.06,
+            "newSubs": 2179,
+            "newFirst": 2125,
+            "newNonFirst": 54
+        },
+        {
+            "month": "2025-02",
+            "totalActiveEnd": 19037,
+            "noNeedM": 1217,
+            "noNeedY": 3198,
+            "expM": 14586,
+            "expY": 122,
+            "actM": 12386,
+            "actY": 71,
+            "rateM": 84.92,
+            "rateY": 58.2,
+            "rateTotal": 84.7,
+            "newSubs": 2165,
+            "newFirst": 2095,
+            "newNonFirst": 70
+        },
+        {
+            "month": "2025-03",
+            "totalActiveEnd": 19614,
+            "noNeedM": 37,
+            "noNeedY": 3250,
+            "expM": 15553,
+            "expY": 197,
+            "actM": 13572,
+            "actY": 133,
+            "rateM": 87.26,
+            "rateY": 67.51,
+            "rateTotal": 87.02,
+            "newSubs": 2622,
+            "newFirst": 2138,
+            "newNonFirst": 484
+        },
+        {
+            "month": "2025-04",
+            "totalActiveEnd": 19421,
+            "noNeedM": 103,
+            "noNeedY": 3377,
+            "expM": 15930,
+            "expY": 204,
+            "actM": 13904,
+            "actY": 118,
+            "rateM": 87.28,
+            "rateY": 57.84,
+            "rateTotal": 86.91,
+            "newSubs": 1919,
+            "newFirst": 1654,
+            "newNonFirst": 265
+        },
+        {
+            "month": "2025-05",
+            "totalActiveEnd": 19308,
+            "noNeedM": 11,
+            "noNeedY": 3436,
+            "expM": 15767,
+            "expY": 207,
+            "actM": 13869,
+            "actY": 135,
+            "rateM": 87.96,
+            "rateY": 65.22,
+            "rateTotal": 87.67,
+            "newSubs": 1857,
+            "newFirst": 1645,
+            "newNonFirst": 212
+        },
+        {
+            "month": "2025-06",
+            "totalActiveEnd": 19296,
+            "noNeedM": 125,
+            "noNeedY": 3479,
+            "expM": 15481,
+            "expY": 223,
+            "actM": 13530,
+            "actY": 132,
+            "rateM": 87.4,
+            "rateY": 59.19,
+            "rateTotal": 87.0,
+            "newSubs": 2030,
+            "newFirst": 1840,
+            "newNonFirst": 190
+        },
+        {
+            "month": "2025-07",
+            "totalActiveEnd": 19748,
+            "noNeedM": 9,
+            "noNeedY": 3500,
+            "expM": 15540,
+            "expY": 247,
+            "actM": 13671,
+            "actY": 150,
+            "rateM": 87.97,
+            "rateY": 60.73,
+            "rateTotal": 87.55,
+            "newSubs": 2418,
+            "newFirst": 2224,
+            "newNonFirst": 194
+        },
+        {
+            "month": "2025-08",
+            "totalActiveEnd": 20536,
+            "noNeedM": 42,
+            "noNeedY": 3532,
+            "expM": 15881,
+            "expY": 293,
+            "actM": 14032,
+            "actY": 169,
+            "rateM": 88.36,
+            "rateY": 57.68,
+            "rateTotal": 87.8,
+            "newSubs": 2761,
+            "newFirst": 2536,
+            "newNonFirst": 225
+        },
+        {
+            "month": "2025-09",
+            "totalActiveEnd": 20915,
+            "noNeedM": 139,
+            "noNeedY": 3964,
+            "expM": 16042,
+            "expY": 391,
+            "actM": 14106,
+            "actY": 214,
+            "rateM": 87.93,
+            "rateY": 54.73,
+            "rateTotal": 87.14,
+            "newSubs": 2492,
+            "newFirst": 2254,
+            "newNonFirst": 238
+        },
+        {
+            "month": "2025-10",
+            "totalActiveEnd": 21013,
+            "noNeedM": 8,
+            "noNeedY": 4504,
+            "expM": 16006,
+            "expY": 397,
+            "actM": 13954,
+            "actY": 212,
+            "rateM": 87.18,
+            "rateY": 53.4,
+            "rateTotal": 86.36,
+            "newSubs": 2335,
+            "newFirst": 2092,
+            "newNonFirst": 243
+        },
+        {
+            "month": "2025-11",
+            "totalActiveEnd": 21031,
+            "noNeedM": 115,
+            "noNeedY": 4866,
+            "expM": 15580,
+            "expY": 452,
+            "actM": 13568,
+            "actY": 264,
+            "rateM": 87.09,
+            "rateY": 58.41,
+            "rateTotal": 86.28,
+            "newSubs": 2218,
+            "newFirst": 2039,
+            "newNonFirst": 179
+        },
+        {
+            "month": "2025-12",
+            "totalActiveEnd": 21772,
+            "noNeedM": 9,
+            "noNeedY": 5382,
+            "expM": 15319,
+            "expY": 321,
+            "actM": 13407,
+            "actY": 189,
+            "rateM": 87.52,
+            "rateY": 58.88,
+            "rateTotal": 86.93,
+            "newSubs": 2780,
+            "newFirst": 2626,
+            "newNonFirst": 154
+        }
+    ],
+    "renewalPeriodData": [
+        {
+            "month": "2025-01",
+            "expM": 15975,
+            "actM": 13772,
+            "rateM": 86.21,
+            "exp_bins": {
+                "P1": 2998,
+                "P2": 2000,
+                "P3": 1696,
+                "P4": 1599,
+                "P5": 1504,
+                "P6": 1184,
+                "P7": 987,
+                "P8": 850,
+                "P9": 725,
+                "P10": 602,
+                "P11": 546,
+                "P12_plus": 1281
+            },
+            "act_bins": {
+                "P1": 2288,
+                "P2": 1636,
+                "P3": 1427,
+                "P4": 1382,
+                "P5": 1322,
+                "P6": 1077,
+                "P7": 905,
+                "P8": 786,
+                "P9": 668,
+                "P10": 558,
+                "P11": 512,
+                "P12_plus": 1210
+            }
+        },
+        {
+            "month": "2025-02",
+            "expM": 14586,
+            "actM": 12386,
+            "rateM": 84.92,
+            "exp_bins": {
+                "P1": 2575,
+                "P2": 1586,
+                "P3": 1438,
+                "P4": 1266,
+                "P5": 1253,
+                "P6": 1209,
+                "P7": 946,
+                "P8": 852,
+                "P9": 728,
+                "P10": 618,
+                "P11": 509,
+                "P12_plus": 1601
+            },
+            "act_bins": {
+                "P1": 1898,
+                "P2": 1288,
+                "P3": 1214,
+                "P4": 1081,
+                "P5": 1076,
+                "P6": 1053,
+                "P7": 848,
+                "P8": 771,
+                "P9": 654,
+                "P10": 566,
+                "P11": 455,
+                "P12_plus": 1482
+            }
+        },
+        {
+            "month": "2025-03",
+            "expM": 15553,
+            "actM": 13572,
+            "rateM": 87.26,
+            "exp_bins": {
+                "P1": 3042,
+                "P2": 1519,
+                "P3": 1331,
+                "P4": 1259,
+                "P5": 1154,
+                "P6": 1115,
+                "P7": 1117,
+                "P8": 917,
+                "P9": 800,
+                "P10": 686,
+                "P11": 588,
+                "P12_plus": 2024
+            },
+            "act_bins": {
+                "P1": 2259,
+                "P2": 1297,
+                "P3": 1147,
+                "P4": 1124,
+                "P5": 1041,
+                "P6": 1002,
+                "P7": 1032,
+                "P8": 834,
+                "P9": 761,
+                "P10": 634,
+                "P11": 555,
+                "P12_plus": 1886
+            }
+        },
+        {
+            "month": "2025-04",
+            "expM": 15930,
+            "actM": 13904,
+            "rateM": 87.28,
+            "exp_bins": {
+                "P1": 3187,
+                "P2": 1272,
+                "P3": 1261,
+                "P4": 1117,
+                "P5": 1126,
+                "P6": 1051,
+                "P7": 1050,
+                "P8": 1031,
+                "P9": 872,
+                "P10": 792,
+                "P11": 660,
+                "P12_plus": 2508
+            },
+            "act_bins": {
+                "P1": 2399,
+                "P2": 1054,
+                "P3": 1088,
+                "P4": 980,
+                "P5": 1007,
+                "P6": 952,
+                "P7": 951,
+                "P8": 951,
+                "P9": 806,
+                "P10": 725,
+                "P11": 622,
+                "P12_plus": 2369
+            }
+        },
+        {
+            "month": "2025-05",
+            "expM": 15767,
+            "actM": 13869,
+            "rateM": 87.96,
+            "exp_bins": {
+                "P1": 2337,
+                "P2": 1608,
+                "P3": 1338,
+                "P4": 1064,
+                "P5": 968,
+                "P6": 991,
+                "P7": 961,
+                "P8": 959,
+                "P9": 960,
+                "P10": 828,
+                "P11": 734,
+                "P12_plus": 3013
+            },
+            "act_bins": {
+                "P1": 1762,
+                "P2": 1343,
+                "P3": 1147,
+                "P4": 927,
+                "P5": 863,
+                "P6": 905,
+                "P7": 886,
+                "P8": 875,
+                "P9": 883,
+                "P10": 766,
+                "P11": 684,
+                "P12_plus": 2826
+            }
+        },
+        {
+            "month": "2025-06",
+            "expM": 15481,
+            "actM": 13530,
+            "rateM": 87.4,
+            "exp_bins": {
+                "P1": 2107,
+                "P2": 1366,
+                "P3": 1284,
+                "P4": 1113,
+                "P5": 910,
+                "P6": 858,
+                "P7": 892,
+                "P8": 897,
+                "P9": 872,
+                "P10": 868,
+                "P11": 783,
+                "P12_plus": 3530
+            },
+            "act_bins": {
+                "P1": 1494,
+                "P2": 1125,
+                "P3": 1106,
+                "P4": 972,
+                "P5": 808,
+                "P6": 765,
+                "P7": 824,
+                "P8": 824,
+                "P9": 801,
+                "P10": 802,
+                "P11": 723,
+                "P12_plus": 3286
+            }
+        },
+        {
+            "month": "2025-07",
+            "expM": 15540,
+            "actM": 13671,
+            "rateM": 87.97,
+            "exp_bins": {
+                "P1": 2396,
+                "P2": 1273,
+                "P3": 1056,
+                "P4": 1067,
+                "P5": 935,
+                "P6": 800,
+                "P7": 749,
+                "P8": 820,
+                "P9": 819,
+                "P10": 794,
+                "P11": 800,
+                "P12_plus": 4027
+            },
+            "act_bins": {
+                "P1": 1776,
+                "P2": 1038,
+                "P3": 916,
+                "P4": 946,
+                "P5": 819,
+                "P6": 703,
+                "P7": 692,
+                "P8": 754,
+                "P9": 740,
+                "P10": 724,
+                "P11": 738,
+                "P12_plus": 3825
+            }
+        },
+        {
+            "month": "2025-08",
+            "expM": 15881,
+            "actM": 14032,
+            "rateM": 88.36,
+            "exp_bins": {
+                "P1": 2727,
+                "P2": 1474,
+                "P3": 950,
+                "P4": 876,
+                "P5": 915,
+                "P6": 799,
+                "P7": 698,
+                "P8": 670,
+                "P9": 744,
+                "P10": 747,
+                "P11": 720,
+                "P12_plus": 4559
+            },
+            "act_bins": {
+                "P1": 2134,
+                "P2": 1216,
+                "P3": 829,
+                "P4": 770,
+                "P5": 816,
+                "P6": 717,
+                "P7": 643,
+                "P8": 617,
+                "P9": 671,
+                "P10": 687,
+                "P11": 660,
+                "P12_plus": 4272
+            }
+        },
+        {
+            "month": "2025-09",
+            "expM": 16042,
+            "actM": 14106,
+            "rateM": 87.93,
+            "exp_bins": {
+                "P1": 2509,
+                "P2": 1780,
+                "P3": 1160,
+                "P4": 788,
+                "P5": 749,
+                "P6": 809,
+                "P7": 706,
+                "P8": 633,
+                "P9": 603,
+                "P10": 666,
+                "P11": 695,
+                "P12_plus": 4944
+            },
+            "act_bins": {
+                "P1": 1881,
+                "P2": 1452,
+                "P3": 1002,
+                "P4": 696,
+                "P5": 656,
+                "P6": 714,
+                "P7": 658,
+                "P8": 577,
+                "P9": 560,
+                "P10": 612,
+                "P11": 641,
+                "P12_plus": 4657
+            }
+        },
+        {
+            "month": "2025-10",
+            "expM": 16006,
+            "actM": 13954,
+            "rateM": 87.18,
+            "exp_bins": {
+                "P1": 2223,
+                "P2": 1637,
+                "P3": 1434,
+                "P4": 968,
+                "P5": 677,
+                "P6": 650,
+                "P7": 710,
+                "P8": 653,
+                "P9": 571,
+                "P10": 564,
+                "P11": 607,
+                "P12_plus": 5312
+            },
+            "act_bins": {
+                "P1": 1570,
+                "P2": 1294,
+                "P3": 1207,
+                "P4": 822,
+                "P5": 617,
+                "P6": 583,
+                "P7": 653,
+                "P8": 603,
+                "P9": 525,
+                "P10": 536,
+                "P11": 558,
+                "P12_plus": 4986
+            }
+        },
+        {
+            "month": "2025-11",
+            "expM": 15580,
+            "actM": 13568,
+            "rateM": 87.09,
+            "exp_bins": {
+                "P1": 2012,
+                "P2": 1292,
+                "P3": 1235,
+                "P4": 1195,
+                "P5": 806,
+                "P6": 601,
+                "P7": 572,
+                "P8": 635,
+                "P9": 598,
+                "P10": 525,
+                "P11": 534,
+                "P12_plus": 5575
+            },
+            "act_bins": {
+                "P1": 1427,
+                "P2": 1024,
+                "P3": 1017,
+                "P4": 983,
+                "P5": 691,
+                "P6": 536,
+                "P7": 516,
+                "P8": 583,
+                "P9": 552,
+                "P10": 493,
+                "P11": 506,
+                "P12_plus": 5240
+            }
+        },
+        {
+            "month": "2025-12",
+            "expM": 15319,
+            "actM": 13407,
+            "rateM": 87.52,
+            "exp_bins": {
+                "P1": 2164,
+                "P2": 1186,
+                "P3": 960,
+                "P4": 979,
+                "P5": 958,
+                "P6": 674,
+                "P7": 522,
+                "P8": 520,
+                "P9": 581,
+                "P10": 541,
+                "P11": 484,
+                "P12_plus": 5750
+            },
+            "act_bins": {
+                "P1": 1508,
+                "P2": 960,
+                "P3": 796,
+                "P4": 834,
+                "P5": 854,
+                "P6": 595,
+                "P7": 481,
+                "P8": 482,
+                "P9": 537,
+                "P10": 499,
+                "P11": 455,
+                "P12_plus": 5406
+            }
+        }
+    ],
+    "firstPeriodRegDist": [
+        {
+            "month": "2025-01",
+            "userCount": 2213,
+            "regDist": {
+                "2025-01": 499,
+                "2025-02": 0,
+                "2025-03": 0,
+                "2025-04": 0,
+                "2025-05": 0,
+                "2025-06": 0,
+                "2025-07": 0,
+                "2025-08": 0,
+                "2025-09": 0,
+                "2025-10": 0,
+                "2025-11": 0,
+                "2025-12": 0,
+                "Earlier": 1714
+            }
+        },
+        {
+            "month": "2025-02",
+            "userCount": 2260,
+            "regDist": {
+                "2025-01": 181,
+                "2025-02": 456,
+                "2025-03": 0,
+                "2025-04": 0,
+                "2025-05": 0,
+                "2025-06": 0,
+                "2025-07": 0,
+                "2025-08": 0,
+                "2025-09": 0,
+                "2025-10": 0,
+                "2025-11": 0,
+                "2025-12": 0,
+                "Earlier": 1623
+            }
+        },
+        {
+            "month": "2025-03",
+            "userCount": 2113,
+            "regDist": {
+                "2025-01": 103,
+                "2025-02": 161,
+                "2025-03": 371,
+                "2025-04": 0,
+                "2025-05": 0,
+                "2025-06": 0,
+                "2025-07": 0,
+                "2025-08": 0,
+                "2025-09": 0,
+                "2025-10": 0,
+                "2025-11": 0,
+                "2025-12": 0,
+                "Earlier": 1478
+            }
+        },
+        {
+            "month": "2025-04",
+            "userCount": 1805,
+            "regDist": {
+                "2025-01": 94,
+                "2025-02": 75,
+                "2025-03": 118,
+                "2025-04": 257,
+                "2025-05": 0,
+                "2025-06": 0,
+                "2025-07": 0,
+                "2025-08": 0,
+                "2025-09": 0,
+                "2025-10": 0,
+                "2025-11": 0,
+                "2025-12": 0,
+                "Earlier": 1261
+            }
+        },
+        {
+            "month": "2025-05",
+            "userCount": 1814,
+            "regDist": {
+                "2025-01": 59,
+                "2025-02": 58,
+                "2025-03": 93,
+                "2025-04": 101,
+                "2025-05": 296,
+                "2025-06": 0,
+                "2025-07": 0,
+                "2025-08": 0,
+                "2025-09": 0,
+                "2025-10": 0,
+                "2025-11": 0,
+                "2025-12": 0,
+                "Earlier": 1207
+            }
+        },
+        {
+            "month": "2025-06",
+            "userCount": 1846,
+            "regDist": {
+                "2025-01": 60,
+                "2025-02": 54,
+                "2025-03": 53,
+                "2025-04": 56,
+                "2025-05": 116,
+                "2025-06": 373,
+                "2025-07": 0,
+                "2025-08": 0,
+                "2025-09": 0,
+                "2025-10": 0,
+                "2025-11": 0,
+                "2025-12": 0,
+                "Earlier": 1134
+            }
+        },
+        {
+            "month": "2025-07",
+            "userCount": 2276,
+            "regDist": {
+                "2025-01": 51,
+                "2025-02": 63,
+                "2025-03": 57,
+                "2025-04": 50,
+                "2025-05": 79,
+                "2025-06": 153,
+                "2025-07": 545,
+                "2025-08": 0,
+                "2025-09": 0,
+                "2025-10": 0,
+                "2025-11": 0,
+                "2025-12": 0,
+                "Earlier": 1278
+            }
+        },
+        {
+            "month": "2025-08",
+            "userCount": 2369,
+            "regDist": {
+                "2025-01": 60,
+                "2025-02": 61,
+                "2025-03": 51,
+                "2025-04": 29,
+                "2025-05": 50,
+                "2025-06": 79,
+                "2025-07": 207,
+                "2025-08": 520,
+                "2025-09": 0,
+                "2025-10": 0,
+                "2025-11": 0,
+                "2025-12": 0,
+                "Earlier": 1312
+            }
+        },
+        {
+            "month": "2025-09",
+            "userCount": 2108,
+            "regDist": {
+                "2025-01": 43,
+                "2025-02": 45,
+                "2025-03": 50,
+                "2025-04": 39,
+                "2025-05": 44,
+                "2025-06": 56,
+                "2025-07": 114,
+                "2025-08": 137,
+                "2025-09": 570,
+                "2025-10": 0,
+                "2025-11": 0,
+                "2025-12": 0,
+                "Earlier": 1010
+            }
+        },
+        {
+            "month": "2025-10",
+            "userCount": 1764,
+            "regDist": {
+                "2025-01": 38,
+                "2025-02": 32,
+                "2025-03": 38,
+                "2025-04": 22,
+                "2025-05": 32,
+                "2025-06": 48,
+                "2025-07": 61,
+                "2025-08": 56,
+                "2025-09": 159,
+                "2025-10": 462,
+                "2025-11": 0,
+                "2025-12": 0,
+                "Earlier": 816
+            }
+        },
+        {
+            "month": "2025-11",
+            "userCount": 1611,
+            "regDist": {
+                "2025-01": 29,
+                "2025-02": 24,
+                "2025-03": 26,
+                "2025-04": 27,
+                "2025-05": 22,
+                "2025-06": 33,
+                "2025-07": 64,
+                "2025-08": 42,
+                "2025-09": 96,
+                "2025-10": 158,
+                "2025-11": 464,
+                "2025-12": 0,
+                "Earlier": 626
+            }
+        },
+        {
+            "month": "2025-12",
+            "userCount": 1279,
+            "regDist": {
+                "2025-01": 22,
+                "2025-02": 23,
+                "2025-03": 25,
+                "2025-04": 16,
+                "2025-05": 22,
+                "2025-06": 29,
+                "2025-07": 48,
+                "2025-08": 32,
+                "2025-09": 59,
+                "2025-10": 69,
+                "2025-11": 135,
+                "2025-12": 291,
+                "Earlier": 508
+            }
+        }
+    ]
+}

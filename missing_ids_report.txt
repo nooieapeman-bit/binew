@@ -1,0 +1,36 @@
+/Users/petercheng/Library/Python/3.9/lib/python/site-packages/paramiko/pkey.py:82: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  "cipher": algorithms.TripleDES,
+/Users/petercheng/Library/Python/3.9/lib/python/site-packages/paramiko/transport.py:253: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  "class": algorithms.TripleDES,
+Checking for product_ids NOT in the mapping for 2024-end active subscriptions...
+Total matching cloud_info records with product_id NOT in mapping: 111
+
+Breakdown (Product ID | Product Name | Count):
+--------------------------------------------------------------------------------
+18e75ca570f308d530eb2060928af51e    | 30-Days Event(Monthly)         | 17
+cd93db1fe522bfd23b24c1b53186ba66    | 3-Days CVR(Yearly)             | 16
+d87851136de8c85bfb2dd63c58089165    | 30-Days Event(Yearly)          | 12
+8401c476dae011eaa280067a3e6cf430    | 30-Day PLAYBACK                | 10
+3992f872dae011eaa280067a3e6cf430    | 7-Day Playback Yearly Plan     | 7
+83a762155aae410159f5b95d4b36e93b    | 3-Days CVR(Monthly)            | 7
+2cb7dc9ddadf11ea988612a3c079152e    | 15-Day EVENT PLAYBACK Yearly Plan | 6
+2182e946dae011eaa280067a3e6cf430    | 3-Day Playback Yearly Plan     | 5
+77a6f17edae111eaa280067a3e6cf430    | 15-Day EVENT PLAYBACK Yearly Plan | 5
+7778b9fddade11ea988612a3c079152e    | 15-Day Playback Yearly Plan    | 3
+095dddffa18c11ea8aeb067a3e6cf430    | 15-Day Playback Yearly Plan    | 2
+b70a2f38dae111eaa280067a3e6cf430    | 30-Day EVENT PLAYBACK Yearly Plan | 2
+4ddd95b5a19511ea8aeb067a3e6cf430    | 15-Day EVENT PLAYBACK Yearly Plan | 2
+43b69ae0dae311ea93750ad72ad45dd2    | 七天云储存一年套餐                      | 2
+33a66b3c2a16185b12c8aea2625bf183    | 3个月免费体验！                       | 2
+2f68f3958ac25015cd4ace07689c205f    |                                | 2
+68732742dade11ea988612a3c079152e    | 7-Day Playback Yearly Plan     | 1
+724e05a3f0c8d150732d6cb9c3fa04ba    | 3-day CVR(Yearly)              | 1
+5bb417f3a1c811eb9b3d067a3e6cf430    | 30-Day  PLAYBACK               | 1
+52b72d358d4811eb93c0067a3e6cf430    | 15-Day  EVENT PLAYBACK         | 1
+8f6ab44bd3601952c889eda0a96854ab    | Generative AI Services Test3   | 1
+95ab732bb2f280abc0f890b02740eb9c    | 14-day Event(Monthly)          | 1
+95affa857a6ad0ddca31eb56a583f5dd    | Generative AI Services CVR Test2   | 1
+b7757655a18b11ea8aeb067a3e6cf430    |                                | 1
+c5c7f32cdae011eaa280067a3e6cf430    | 15-Day Playback Yearly Plan    | 1
+c704d2b6a18b11ea8aeb067a3e6cf430    |                                | 1
+0633a438e089b327fcb7d8bb723cbaa5    | 14-day Event(Yearly)           | 1

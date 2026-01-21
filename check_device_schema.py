@@ -1,23 +1,14 @@
 import pymysql
-from sshtunnel import SSHTunnelForwarder
-from config import create_ssh_tunnel, get_db_connection
+from config import create_ssh_tunnel, DB_USER, DB_PASS, DB_NAME
 
-def check_structure():
-    print("Checking user_device structure...")
+def describe_remote():
     with create_ssh_tunnel() as server:
-        conn = get_db_connection()
-        try:
-            with conn.cursor() as cursor:
-                cursor.execute("DESCRIBE `user_device`")
-                for r in cursor.fetchall():
-                    print(r)
-                
-                print("\nChecking bind_type sample:")
-                cursor.execute("SELECT bind_type, COUNT(*) FROM user_device GROUP BY bind_type LIMIT 10")
-                for r in cursor.fetchall():
-                    print(r)
-        finally:
-            conn.close()
+        remote_conn = pymysql.connect(host='127.0.0.1', port=server.local_bind_port, user=DB_USER, password=DB_PASS, database=DB_NAME)
+        with remote_conn.cursor() as cur:
+            cur.execute("DESCRIBE user_device")
+            rows = cur.fetchall()
+            for r in rows:
+                print(r)
 
 if __name__ == "__main__":
-    check_structure()
+    describe_remote()

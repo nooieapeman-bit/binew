@@ -10,6 +10,10 @@ from query_monthly_devices import get_monthly_device_data
 from query_business_matrix import get_business_matrix
 from query_direct_buyer_history import get_direct_buyer_history
 from query_active_subscriptions import get_active_subscriptions_data
+from query_active_detailed import get_detailed_active_subscriptions
+from query_active_retention import get_active_retention_analysis
+from query_monthly_renewal_periods import get_monthly_renewal_periods
+from query_first_period_reg_dist import get_first_period_reg_dist
 
 def run_all_queries():
     print("Connecting to Remote DB via SSH Tunnel...")
@@ -35,18 +39,30 @@ def run_all_queries():
                 
                 # 6. Registration & Device Analysis
                 reg_device_data = get_registration_device_analysis(cursor)
-
+ 
                 # 7. Monthly New Devices
                 device_data = get_monthly_device_data(cursor)
-
-                # 7. Business Performance Matrix
+ 
+                # 8. Business Performance Matrix
                 matrix_data = get_business_matrix(cursor)
-
-                # 8. Direct Buyer History
+ 
+                # 9. Direct Buyer History
                 history_data = get_direct_buyer_history(cursor)
                 
-                # 9. Active Subscriptions
+                # 10. Active Subscriptions
                 active_sub_data = get_active_subscriptions_data(cursor)
+                
+                # 11. Detailed Active Subscriptions Breakdown
+                detailed_active_data = get_detailed_active_subscriptions(cursor)
+                
+                # 12. Retention & Renewal Analysis
+                retention_data = get_active_retention_analysis(cursor)
+
+                # 13. Monthly Renewal Period Distribution
+                renewal_period_data = get_monthly_renewal_periods(cursor)
+
+                # 14. First Period Reg Dist
+                first_period_reg_dist = get_first_period_reg_dist(cursor)
 
                 # Output
                 output = {
@@ -60,7 +76,11 @@ def run_all_queries():
                     "deviceData": device_data,
                     "businessMatrixData": matrix_data,
                     "buyerHistoryData": history_data,
-                    "activeSubscriptionData": active_sub_data
+                    "activeSubscriptionData": active_sub_data,
+                    "detailedActiveData": detailed_active_data,
+                    "retentionData": retention_data,
+                    "renewalPeriodData": renewal_period_data,
+                    "firstPeriodRegDist": first_period_reg_dist
                 }
                 
                 print("\n--- FINAL JSON OUTPUT ---")
